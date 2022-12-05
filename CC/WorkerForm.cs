@@ -41,6 +41,7 @@ namespace CC
             {
                 tabControl1.TabPages.Remove(Workers_tabPage);
                 tabControl1.TabPages.Remove(Materials_tabPage);
+                tabControl1.TabPages.Remove(sklad_tabPage);
 
                 //tabControl1.TabPages.Remove(clients_tabPage);
                 //tabControl1.TabPages.Remove(projects_tabPage);
@@ -59,11 +60,13 @@ namespace CC
                 tabControl1.TabPages.Remove(brigade_tabPage);
                 tabControl1.TabPages.Remove(work_tabPage);
                 tabControl1.TabPages.Remove(matCon_tabPage);
+                tabControl1.TabPages.Remove(sklad_tabPage);
             }
             else if (CurrentWorker.Job == "Главный инженер") //engineer
             {
                 tabControl1.TabPages.Remove(Workers_tabPage);
                 tabControl1.TabPages.Remove(Supplier_tabPage);
+                tabControl1.TabPages.Remove(Materials_tabPage);
             }
             else if (CurrentWorker.Job == "Генеральный директор") //director
             {
@@ -71,6 +74,7 @@ namespace CC
                 tabControl1.TabPages.Remove(Supplier_tabPage);
                 tabControl1.TabPages.Remove(brigade_tabPage);
                 tabControl1.TabPages.Remove(work_tabPage);
+                tabControl1.TabPages.Remove(sklad_tabPage);
             }
             else if (CurrentWorker.Job == "Главный бухгалтер")
             {
@@ -79,6 +83,7 @@ namespace CC
                 tabControl1.TabPages.Remove(Supplier_tabPage);
                 tabControl1.TabPages.Remove(brigade_tabPage);
                 tabControl1.TabPages.Remove(work_tabPage);
+                tabControl1.TabPages.Remove(sklad_tabPage);
             }
             else if (CurrentWorker.Job == "Архитектор-конструктор")
             {
@@ -89,6 +94,7 @@ namespace CC
                 //tabControl1.TabPages.Remove(brigade_tabPage);
                 //tabControl1.TabPages.Remove(work_tabPage);
                 tabControl1.TabPages.Remove(matCon_tabPage);
+                tabControl1.TabPages.Remove(sklad_tabPage);
             }
             /*else
             {
@@ -149,6 +155,12 @@ namespace CC
             }
             delMat_comboBox.SelectedIndex = 0;
             delSup_comboBox.SelectedIndex = 0;
+        }
+
+        private void UpdateSklad()
+        {
+            var materials = Materials.GetAll();
+            sklad_dataGridView.DataSource = materials;
         }
 
         private void UpdateSuppliers()
@@ -823,15 +835,15 @@ namespace CC
             string edFilter = "";
             if (nal_checkBox.Checked && !card_checkBox.Checked)
             {
-                edFilter = $"[Способ оплаты] = 'Наличные'";
+                edFilter = $"[Статус объекта] = 'Активен'";
             }
             else if (!nal_checkBox.Checked && card_checkBox.Checked)
                 {
-                    edFilter = $"[Способ оплаты] = 'Банковская карта'";
+                    edFilter = $"[Статус объекта] = 'Завершен'";
                 }
             else if (!nal_checkBox.Checked && !card_checkBox.Checked)
             {
-                edFilter = $"[Способ оплаты] = 'dfdft srt'";
+                edFilter = $"[Статус объекта] = 'dfdft srt'";
             }
 
             if (prFind_textBox.Text != prHint)
@@ -1308,6 +1320,122 @@ DateTime.Parse(                    cmpWork_dataGridView.CurrentRow.Cells[3].Valu
         private void button1_Click(object sender, EventArgs e)
         {
             Rash_dataGridView.Sort(this.Rash_dataGridView.Columns["Стоимость"], ListSortDirection.Descending);
+        }
+
+        private void sklad_tabPage_Enter(object sender, EventArgs e)
+        {
+            UpdateSklad();
+            sklad_comboBox.SelectedIndex = 0;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            AddMaterialForm addClientForm = new AddMaterialForm();
+
+            addClientForm.matEd_comboBox.Items.Clear();
+            addClientForm.matEd_comboBox.Items.AddRange(skladEd_comboBox.Items.Cast<Object>().ToArray());
+            addClientForm.FormClosed += (s, ee) => { UpdateSklad(); };
+            addClientForm.ShowDialog();
+        }
+
+        private void skladDel_button_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Отменить действие будет невозможно! Продолжить?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                material.Delete();
+                MessageBox.Show("Материал удален!");
+                UpdateSklad();
+            }
+        }
+
+        private void skladEdit_button_Click(object sender, EventArgs e)
+        {
+            if (skladName_textBox.Text.Length > 0)
+            {
+                material.Name = skladName_textBox.Text;
+                material.Ed = skladEd_comboBox.Text;
+
+                decimal matPr;
+                if (decimal.TryParse(skladPrice_textBox.Text, out matPr))
+                {
+                    material.Price = matPr;
+
+                    material.Update();
+                    MessageBox.Show("Данные обновлены!");
+                    UpdateSklad();
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка в стоимости!");
+                }
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            UpdateSklad();
+            string edFilter = "";
+            if (sklad_comboBox.SelectedIndex != 0)
+            {
+                edFilter = $"[Единицы измерения] = '{sklad_comboBox.Text}'";
+            }
+            if (skladFind_textBox.Text != brHint)
+            {
+                ((DataTable)sklad_dataGridView.DataSource).DefaultView.RowFilter = edFilter + (edFilter.Length > 0 ? " AND " : "") + $"([Название] LIKE '%{skladFind_textBox.Text}%')";
+            }
+            else
+            {
+                ((DataTable)sklad_dataGridView.DataSource).DefaultView.RowFilter = edFilter;
+            }
+        }
+
+        private void skladdesc_button_Click(object sender, EventArgs e)
+        {
+            sklad_dataGridView.Sort(this.sklad_dataGridView.Columns["Стоимость"], ListSortDirection.Ascending);
+
+        }
+
+        private void skladasc_button_Click(object sender, EventArgs e)
+        {
+            sklad_dataGridView.Sort(this.sklad_dataGridView.Columns["Стоимость"], ListSortDirection.Ascending);
+
+        }
+
+        private void skladFind_textBox_Leave(object sender, EventArgs e)
+        {
+            if (skladFind_textBox.Text.Length == 0)
+            {
+                skladFind_textBox.Text = brHint;
+                skladFind_textBox.ForeColor = Color.Gray;
+            }
+        }
+
+        private void skladFind_textBox_Enter(object sender, EventArgs e)
+        {
+            if (skladFind_textBox.Text == brHint)
+            {
+                skladFind_textBox.Text = "";
+                skladFind_textBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void sklad_dataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (sklad_dataGridView.SelectedRows.Count > 0)
+            {
+                material = new Material(int.Parse(sklad_dataGridView.CurrentRow.Cells[0].Value.ToString()),
+                   sklad_dataGridView.CurrentRow.Cells[1].Value.ToString(),
+                   sklad_dataGridView.CurrentRow.Cells[2].Value.ToString(),
+                   decimal.Parse(sklad_dataGridView.CurrentRow.Cells[4].Value.ToString()),
+                   int.Parse(sklad_dataGridView.CurrentRow.Cells[3].Value.ToString()));
+
+                skladId_label.Text = material.Id.ToString();
+                skladName_textBox.Text = material.Name;
+                skladEd_comboBox.Text = material.Ed;
+                skladPrice_textBox.Text = material.Price.ToString();
+                skladCount_label.Text = material.Count.ToString();
+
+            }
         }
     }
 }
