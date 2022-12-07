@@ -104,6 +104,7 @@
             this.prPrice_textBox.Size = new System.Drawing.Size(199, 25);
             this.prPrice_textBox.TabIndex = 53;
             this.prPrice_textBox.Text = "0";
+            this.prPrice_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.prPrice_textBox_KeyPress);
             // 
             // prStatus_comboBox
             // 
@@ -321,8 +322,10 @@
             this.Controls.Add(this.label39);
             this.Controls.Add(this.panel9);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddPrForm";
-            this.Text = "AddPrForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Добавить проект";
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.ResumeLayout(false);

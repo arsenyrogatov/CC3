@@ -67,6 +67,7 @@ namespace CC
                 tabControl1.TabPages.Remove(Workers_tabPage);
                 tabControl1.TabPages.Remove(Supplier_tabPage);
                 tabControl1.TabPages.Remove(Materials_tabPage);
+                tabControl1.TabPages.Remove(matCon_tabPage);
             }
             else if (CurrentWorker.Job == "Генеральный директор") //director
             {
@@ -88,6 +89,8 @@ namespace CC
             else if (CurrentWorker.Job == "Архитектор-конструктор")
             {
                 tabControl1.TabPages.Remove(Workers_tabPage);
+                tabControl1.TabPages.Remove(work_tabPage);
+                tabControl1.TabPages.Remove(brigade_tabPage);
                 tabControl1.TabPages.Remove(Materials_tabPage);
                 tabControl1.TabPages.Remove(clients_tabPage);
                 tabControl1.TabPages.Remove(Supplier_tabPage);
@@ -212,11 +215,6 @@ namespace CC
             projects_dataGridView.DataSource = Projects.GetAll();
             projects_dataGridView.Columns[1].Visible = false;
             projects_dataGridView.Columns[2].Visible = false;
-
-            if (Job_label.Text.ToLower() == "главный инженер")
-            {
-                ((DataTable)projects_dataGridView.DataSource).DefaultView.RowFilter = $"[КодСотрудника] = {Id_label.Text}";
-            }
 
             prWorker_comboBox.Items.Clear();
             var workers = Workers.GetAll();
@@ -460,6 +458,10 @@ namespace CC
                     MessageBox.Show("Такие данные уже существуют!");
                 }
             }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
+            }
         }
 
         private void deleteClient_button_Click(object sender, EventArgs e)
@@ -499,6 +501,10 @@ namespace CC
                 {
                     MessageBox.Show("Ошибка в стоимости!");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
             }
         }
 
@@ -570,6 +576,10 @@ namespace CC
                 MessageBox.Show("Данные обновлены!");
                 UpdateSuppliers();
             }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
+            }
         }
 
         private void supDel_button_Click(object sender, EventArgs e)
@@ -619,14 +629,23 @@ namespace CC
                 brigade.Update();
                 MessageBox.Show("Данные обновлены!");
                 UpdateBrigade();
+                
+            }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
             }
         }
 
         private void brigAdd_button_Click(object sender, EventArgs e)
         {
-            Brigades.Add();
-            MessageBox.Show("Бригада добавлена!");
-            UpdateBrigade();
+            if (brigName_textBox.Text.Length > 0 &&
+                MessageBox.Show($"Вы дейстительно хотите добавить бригаду '{brigName_textBox.Text}'?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Brigades.Add(brigName_textBox.Text);
+                MessageBox.Show("Бригада добавлена!");
+                UpdateBrigade();
+            }
         }
 
         private void brWorkerAdd_button_Click(object sender, EventArgs e)
@@ -635,6 +654,11 @@ namespace CC
             {
                 brigade.AddWorker(int.Parse(brWorker_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]));
                 UpdateBrigade();
+                MessageBox.Show("Сотрудник добавлен в бригаду!");
+            }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
             }
         }
 
@@ -644,6 +668,7 @@ namespace CC
             {
                 brigade.DeleteWorker(int.Parse(brWorkers_dataGridView.CurrentRow.Cells[0].Value.ToString()));
                 UpdateBrigade();
+                MessageBox.Show("Сотрудник удален из бригады!");
             }
         }
 
@@ -660,6 +685,15 @@ namespace CC
             addClientForm.prClient_comboBox.Items.Clear();
             addClientForm.prWorker_comboBox.Items.AddRange(prWorker_comboBox.Items.Cast<Object>().ToArray());
             addClientForm.prClient_comboBox.Items.AddRange(prClient_comboBox.Items.Cast<Object>().ToArray());
+
+            for (int i = 0; i < addClientForm.prWorker_comboBox.Items.Count; i++)
+            {
+                if (int.Parse(addClientForm.prWorker_comboBox.Items[i].ToString().Substring(1).Split(new char[] { ')' })[0]) == CurrentWorker.Id)
+                {
+                    addClientForm.prWorker_comboBox.SelectedIndex = i;
+                }
+            }
+
             addClientForm.FormClosed += (s, ee) => { UpdateProject(); };
             addClientForm.ShowDialog();
             /*Projects.Add();
@@ -735,6 +769,10 @@ namespace CC
                 {
                     MessageBox.Show("Ошибка в стоимости!");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
             }
         }
 
@@ -848,16 +886,12 @@ namespace CC
 
             if (prFind_textBox.Text != prHint)
             {
-                if (Job_label.Text.ToLower() == "главный инженер")
-                    ((DataTable)projects_dataGridView.DataSource).DefaultView.RowFilter = edFilter + (edFilter.Length > 0 ? " AND " : "") + $"([КодСотрудника] = {Id_label.Text} AND ( [Заказчик] LIKE '%{prFind_textBox.Text}%' OR [Описание] LIKE '%{prFind_textBox.Text}%' ))";
-                else
-                    ((DataTable)projects_dataGridView.DataSource).DefaultView.RowFilter = edFilter + (edFilter.Length > 0 ? " AND " : "") + $"([Заказчик] LIKE '%{prFind_textBox.Text}%' OR [Сотрудник] LIKE '%{prFind_textBox.Text}%' OR [Описание] LIKE '%{prFind_textBox.Text}%')";
+               
+                    ((DataTable)projects_dataGridView.DataSource).DefaultView.RowFilter = edFilter + (edFilter.Length > 0 ? " AND " : "") + $"([Адрес] LIKE '%{prFind_textBox.Text}%' OR [Описание] LIKE '%{prFind_textBox.Text}%' OR [Заказчик] LIKE '%{prFind_textBox.Text}%' OR [Сотрудник] LIKE '%{prFind_textBox.Text}%')";
             }
             else
             {
-                if (Job_label.Text.ToLower() == "главный инженер")
-                    ((DataTable)projects_dataGridView.DataSource).DefaultView.RowFilter = edFilter + (edFilter.Length > 0 ? " AND " : "") + $"[КодСотрудника] = {Id_label.Text}";
-                else
+                
                     ((DataTable)projects_dataGridView.DataSource).DefaultView.RowFilter = edFilter;
             }
             
@@ -872,15 +906,22 @@ namespace CC
         {
             if (work_dataGridView.SelectedRows.Count > 0)
             {
-                work = new Work(int.Parse(work_dataGridView.CurrentRow.Cells[0].Value.ToString()),
-                    int.Parse(work_dataGridView.CurrentRow.Cells[1].Value.ToString()),
-                    work_dataGridView.CurrentRow.Cells[3].Value.ToString(),
-                    work_dataGridView.CurrentRow.Cells[4].Value.ToString());
+                try
+                {
+                    work = new Work(int.Parse(work_dataGridView.CurrentRow.Cells[0].Value.ToString()),
+                        int.Parse(work_dataGridView.CurrentRow.Cells[1].Value.ToString()),
+                        work_dataGridView.CurrentRow.Cells[3].Value.ToString(),
+                        work_dataGridView.CurrentRow.Cells[4].Value.ToString());
 
-                wrId_label.Text = work.Id.ToString();
-                wrBr_comboBox.Text = $"({work.BrId}) {work_dataGridView.CurrentRow.Cells[2].Value.ToString()}";
-                wrType_textBox.Text = work.Type;
-                wrName_textBox.Text = work.Name;
+                    wrId_label.Text = work.Id.ToString();
+                    wrBr_comboBox.Text = $"({work.BrId}) {work_dataGridView.CurrentRow.Cells[2].Value.ToString()}";
+                    wrType_textBox.Text = work.Type;
+                    wrName_textBox.Text = work.Name;
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
         }
 
@@ -898,25 +939,33 @@ namespace CC
                 UpdateWork();
                 MessageBox.Show("Данные обновлены!");
             }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
+            }
         }
 
         private void wrAdd_button_Click(object sender, EventArgs e)
         {
-            if (wrBr_comboBox.SelectedIndex != -1 && wrType_textBox.Text.Length > 0 &&
+            if (MessageBox.Show($"Вы действительно хотите добавить работу '{wrName_textBox.Text}'?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (wrBr_comboBox.SelectedIndex != -1 &&
+                wrType_textBox.Text.Length > 0 &&
                 wrName_textBox.Text.Length > 0)
-            {
-                work.Id = int.Parse(wrId_label.Text);
-                work.BrId = int.Parse(wrBr_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]);
-                work.Type = wrType_textBox.Text;
-                work.Name = wrName_textBox.Text;
+                {
+                    work.Id = int.Parse(wrId_label.Text);
+                    work.BrId = int.Parse(wrBr_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]);
+                    work.Type = wrType_textBox.Text;
+                    work.Name = wrName_textBox.Text;
 
-                work.Add();
-                UpdateWork();
-                MessageBox.Show("Работа добавлена!");
-            }
-            else
-            {
-                MessageBox.Show("Работа не добавлена!");
+                    work.Add();
+                    UpdateWork();
+                    MessageBox.Show("Работа добавлена!");
+                }
+                else
+                {
+                    MessageBox.Show("Работа не добавлена!");
+                }
             }
         }
 
@@ -927,10 +976,8 @@ namespace CC
                 workCompleted = new CompletedWork(int.Parse(cmpWork_dataGridView.CurrentRow.Cells[0].Value.ToString()),
                     int.Parse(cmpWork_dataGridView.CurrentRow.Cells[1].Value.ToString()),
                     DateTime.Parse(cmpWork_dataGridView.CurrentRow.Cells[2].Value.ToString()),
-DateTime.Parse(                    cmpWork_dataGridView.CurrentRow.Cells[3].Value.ToString()),
-                    cmpWork_dataGridView.CurrentRow.Cells[4].Value.ToString());
+DateTime.Parse(                    cmpWork_dataGridView.CurrentRow.Cells[3].Value.ToString()));
 
-                cStatus_comboBox.Text = workCompleted.Status;
                 cEnd_dateTimePicker.Value = workCompleted.End;
                 cBegin_dateTimePicker.Value = workCompleted.Start;
                 for (int i = 0; i < cPr_comboBox.Items.Count; i++)
@@ -944,35 +991,62 @@ DateTime.Parse(                    cmpWork_dataGridView.CurrentRow.Cells[3].Valu
                         cWr_comboBox.SelectedIndex = i;
                 }
 
-                ((DataTable)work_dataGridView.DataSource).DefaultView.RowFilter = $"[Код] = {workCompleted.WorkId}";
-            }
+                for (int i = 0; i < work_dataGridView.Rows.Count; i++)
+                {
+                    if (work_dataGridView.Rows[i].Cells[0].Value.ToString() == workCompleted.WorkId.ToString())
+                    {
+                        work_dataGridView.Rows[i].Selected = true;
+
+                        work = new Work(int.Parse(work_dataGridView.Rows[i].Cells[0].Value.ToString()),
+                        int.Parse(work_dataGridView.Rows[i].Cells[1].Value.ToString()),
+                        work_dataGridView.Rows[i].Cells[3].Value.ToString(),
+                        work_dataGridView.Rows[i].Cells[4].Value.ToString());
+
+                        wrId_label.Text = work.Id.ToString();
+                        wrBr_comboBox.Text = $"({work.BrId}) {work_dataGridView.Rows[i].Cells[2].Value.ToString()}";
+                        wrType_textBox.Text = work.Type;
+                        wrName_textBox.Text = work.Name;
+                    }
+                }
+
+                    //    ((DataTable)work_dataGridView.DataSource).DefaultView.RowFilter = $"[Код] = {workCompleted.WorkId}";
+                }
         }
 
         private void cUpdate_button_Click(object sender, EventArgs e)
         {
-            if (cWr_comboBox.SelectedIndex != -1 && cPr_comboBox.SelectedIndex != -1 && cStatus_comboBox.SelectedIndex != -1)
+            if (cWr_comboBox.SelectedIndex != -1 && cPr_comboBox.SelectedIndex != -1)
             {
-                workCompleted.Status = cStatus_comboBox.Text;
                 workCompleted.End = cEnd_dateTimePicker.Value;
                 workCompleted.Start = cBegin_dateTimePicker.Value;
                 workCompleted.ProjId = int.Parse(cPr_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]);
                 workCompleted.WorkId = int.Parse(cWr_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]);
                 workCompleted.Update();
                 UpdateWork();
+                MessageBox.Show("Данные обновлены!");
+            }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
             }
         }
 
         private void cAdd_button_Click(object sender, EventArgs e)
         {
-            if (cWr_comboBox.SelectedIndex != -1 && cPr_comboBox.SelectedIndex != -1 && cStatus_comboBox.SelectedIndex != -1)
+            if (cWr_comboBox.SelectedIndex != -1 && cPr_comboBox.SelectedIndex != -1)
             {
-                workCompleted.Status = cStatus_comboBox.Text;
                 workCompleted.End = cEnd_dateTimePicker.Value;
                 workCompleted.Start = cBegin_dateTimePicker.Value;
                 workCompleted.ProjId = int.Parse(cPr_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]);
                 workCompleted.WorkId = int.Parse(cWr_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]);
                 workCompleted.Add();
                 UpdateWork();
+                MessageBox.Show("Данные добавлены!");
+            }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
+
             }
         }
 
@@ -1013,18 +1087,31 @@ DateTime.Parse(                    cmpWork_dataGridView.CurrentRow.Cells[3].Valu
                 matCon.Count = ((int)RashCount_numericUpDown.Value);
                 matCon.Update();
                 UpdateMatCon();
+                MessageBox.Show("Данные обновлены!");
+            }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
             }
         }
 
         private void RashAdd_button_Click(object sender, EventArgs e)
         {
-            if (RashMat_comboBox.SelectedIndex != -1 && RashWork_comboBox.SelectedIndex != -1)
+            if (MessageBox.Show("Вы действительно хотите добавить расход?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                matCon.MatId = int.Parse(RashMat_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]);
-                matCon.WorkId = int.Parse(RashWork_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]);
-                matCon.Count = ((int)RashCount_numericUpDown.Value);
-                matCon.Add();
-                UpdateMatCon();
+                if (RashMat_comboBox.SelectedIndex != -1 && RashWork_comboBox.SelectedIndex != -1)
+                {
+                    matCon.MatId = int.Parse(RashMat_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]);
+                    matCon.WorkId = int.Parse(RashWork_comboBox.Text.Substring(1).Split(new char[] { ')' })[0]);
+                    matCon.Count = ((int)RashCount_numericUpDown.Value);
+                    matCon.Add();
+                    UpdateMatCon();
+                    MessageBox.Show("Данные добавлены!");
+                }
+                else
+                {
+                    MessageBox.Show("Проверьте введенные данные!");
+                }
             }
         }
 
@@ -1037,6 +1124,7 @@ DateTime.Parse(                    cmpWork_dataGridView.CurrentRow.Cells[3].Valu
                 matCon.Count = ((int)RashCount_numericUpDown.Value);
                 matCon.Delete();
                 UpdateMatCon();
+                MessageBox.Show("Данные удалены!");
             }
         }
 
@@ -1292,26 +1380,6 @@ DateTime.Parse(                    cmpWork_dataGridView.CurrentRow.Cells[3].Valu
             brigade_dataGridView.Sort(this.brigade_dataGridView.Columns["Число рабочих"], ListSortDirection.Descending);
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            string edFilter = "";
-            if (checkBox1.Checked && !checkBox2.Checked)
-            {
-                edFilter = $"[Статус работы] = 'Выполнено'";
-            }
-            else if (!checkBox1.Checked && checkBox2.Checked)
-            {
-                edFilter = $"[Статус работы] = 'Не выполнено'";
-            }
-            else if (!checkBox1.Checked && !checkBox2.Checked)
-            {
-                edFilter = $"[Статус работы] = 'ыыккеры выпрраолнено'";
-            }
-
-                ((DataTable)cmpWork_dataGridView.DataSource).DefaultView.RowFilter = edFilter;
-            
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Rash_dataGridView.Sort(this.Rash_dataGridView.Columns["Стоимость"], ListSortDirection.Ascending);
@@ -1368,6 +1436,11 @@ DateTime.Parse(                    cmpWork_dataGridView.CurrentRow.Cells[3].Valu
                 {
                     MessageBox.Show("Ошибка в стоимости!");
                 }
+
+            }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
             }
         }
 
@@ -1436,6 +1509,64 @@ DateTime.Parse(                    cmpWork_dataGridView.CurrentRow.Cells[3].Valu
                 skladCount_label.Text = material.Count.ToString();
 
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ((DataTable)workers_dataGridView.DataSource).DefaultView.RowFilter = "";
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ((DataTable)clients_dataGridView.DataSource).DefaultView.RowFilter = "";
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string edFilter = "";
+            if (matEdFilter_comboBox.SelectedIndex != 0)
+            {
+                edFilter = $"[Единицы измерения] = '{matEdFilter_comboBox.Text}'";
+            }
+
+                ((DataTable)materials_dataGridView.DataSource).DefaultView.RowFilter = edFilter;
+                ((DataTable)deliveries_dataGridView.DataSource).DefaultView.RowFilter = "";
+            
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ((DataTable)suppliers_dataGridView.DataSource).DefaultView.RowFilter = "";
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ((DataTable)brigade_dataGridView.DataSource).DefaultView.RowFilter = "";
+        }
+
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ((DataTable)projects_dataGridView.DataSource).DefaultView.RowFilter = "";
+        }
+
+        private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string filter = "";
+            if (RashProject_comboBox.SelectedIndex == 0)
+                ((DataTable)Rash_dataGridView.DataSource).DefaultView.RowFilter = filter;
+            else
+                ((DataTable)Rash_dataGridView.DataSource).DefaultView.RowFilter = filter + (filter.Length > 0 ? " AND " : "") + $"[НомерПроекта] = {int.Parse(RashProject_comboBox.Text.Substring(1).Split(new char[] { ')' })[0])}";
+        }
+
+        private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string edFilter = "";
+            if (sklad_comboBox.SelectedIndex != 0)
+            {
+                edFilter = $"[Единицы измерения] = '{sklad_comboBox.Text}'";
+            }
+                ((DataTable)sklad_dataGridView.DataSource).DefaultView.RowFilter = edFilter;
+            
         }
     }
 }

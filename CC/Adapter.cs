@@ -73,6 +73,19 @@ namespace CC
             return resultTable;
         }
 
+        public static DataTable GetRoles()
+        {
+            var resultTable = new DataTable();
+            System.Data.SqlClient.SqlCommand GetAllWorkers = new System.Data.SqlClient.SqlCommand("SELECT * FROM GetRoles()", DBConnection.connection);
+            GetAllWorkers.CommandType = System.Data.CommandType.Text;
+
+            DBConnection.Open();
+            resultTable.Load(GetAllWorkers.ExecuteReader());
+            DBConnection.Close();
+
+            return resultTable;
+        }
+
         public static DataTable GetByBrigadeId(int id)
         {
             var resultTable = new DataTable();
@@ -223,9 +236,12 @@ namespace CC
             return resultTable;
         }
 
-        public static void Add()
+        public static void Add(string name)
         {
-            System.Data.SqlClient.SqlCommand AddEmptyBrigade = new System.Data.SqlClient.SqlCommand("AddEmptyBrigade", DBConnection.connection);
+            System.Data.SqlClient.SqlCommand AddEmptyBrigade = new System.Data.SqlClient.SqlCommand("AddBrigade", DBConnection.connection);
+
+            AddEmptyBrigade.Parameters.Add("@name", System.Data.SqlDbType.Int);
+            AddEmptyBrigade.Parameters["@name"].Value = name;
 
             DBConnection.Open();
             AddEmptyBrigade.ExecuteNonQuery();
@@ -394,15 +410,13 @@ namespace CC
         public int WorkId { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
-        public string Status { get; set; }
 
-        public CompletedWork(int projId, int workId, DateTime start, DateTime end, string status)
+        public CompletedWork(int projId, int workId, DateTime start, DateTime end)
         {
             ProjId = projId;
             WorkId = workId;
             Start = start;
             End = end;
-            Status = status;
         }
 
         public void Update()
@@ -422,7 +436,7 @@ namespace CC
             UpdateCompletedWork.Parameters["@End"].Value = End;
 
             UpdateCompletedWork.Parameters.Add("@Status", System.Data.SqlDbType.VarChar, 20);
-            UpdateCompletedWork.Parameters["@Status"].Value = Status;
+            UpdateCompletedWork.Parameters["@Status"].Value = "Выполнено";
 
             DBConnection.Open();
             UpdateCompletedWork.ExecuteNonQuery();
@@ -447,7 +461,7 @@ namespace CC
             AddCompletedWork.Parameters["@End"].Value = End;
 
             AddCompletedWork.Parameters.Add("@Status", System.Data.SqlDbType.VarChar, 20);
-            AddCompletedWork.Parameters["@Status"].Value = Status;
+            AddCompletedWork.Parameters["@Status"].Value = "Выполнено";
 
             DBConnection.Open();
             AddCompletedWork.ExecuteNonQuery();

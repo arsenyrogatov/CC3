@@ -19,9 +19,14 @@ namespace CC
 
         private void prAdd_button_Click(object sender, EventArgs e)
         {
-            if (prDescr_textBox.Text.Length > 0 && prAddr_textBox.Text.Length > 0 &&
-                prBegin_dateTimePicker.Value < prEnd_dateTimePicker.Value && prType_comboBox.SelectedIndex != -1 &&
-                prDoc_textBox.Text.Length > 0 && prWorker_comboBox.SelectedIndex != -1 && prClient_comboBox.SelectedIndex != -1)
+            if (prDescr_textBox.Text.Length > 0 && 
+                prAddr_textBox.Text.Length > 0 &&
+                prBegin_dateTimePicker.Value < prEnd_dateTimePicker.Value && 
+                prType_comboBox.SelectedIndex != -1 &&
+                prDoc_textBox.Text.Length > 0 &&
+                prStatus_comboBox.SelectedIndex != -1 &&
+                prWorker_comboBox.SelectedIndex != -1 && 
+                prClient_comboBox.SelectedIndex != -1)
             {
                 decimal matPr;
                 if (decimal.TryParse(prPrice_textBox.Text, out matPr))
@@ -47,6 +52,18 @@ namespace CC
                 {
                     MessageBox.Show("Ошибка в стоимости!");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Проверьте введенные данные!");
+            }
+        }
+
+        private void prPrice_textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

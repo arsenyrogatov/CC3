@@ -57,7 +57,14 @@ namespace CC
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            var roles = Workers.GetRoles();
+            comboBox.Items.Clear();
+            for (int i = 0; i < roles.Rows.Count; i++)
+            {
+                comboBox.Items.Add(roles.Rows[i][0].ToString());
+            }
+            if (comboBox.Items.Count > 0)
+                comboBox.SelectedIndex = 0;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
