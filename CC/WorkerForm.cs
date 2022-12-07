@@ -99,12 +99,12 @@ namespace CC
                 tabControl1.TabPages.Remove(matCon_tabPage);
                 tabControl1.TabPages.Remove(sklad_tabPage);
             }
-            /*else
+            else
             {
                 tabControl1.Visible = false;
                 Size = new Size(286, 726);
                 //1344; 726
-            }*/
+            }
 
         }
         Worker worker;
