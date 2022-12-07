@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -1567,6 +1569,86 @@ DateTime.Parse(                    cmpWork_dataGridView.CurrentRow.Cells[3].Valu
             }
                 ((DataTable)sklad_dataGridView.DataSource).DefaultView.RowFilter = edFilter;
             
+        }
+
+        private void report_button_Click(object sender, EventArgs e)
+        {
+            var reportProjects = Projects.GetAll();
+
+            float totalPrice = float.Parse(reportProjects.Compute("Sum(Стоимость)", "").ToString());
+            float maxPrice = float.Parse(reportProjects.Compute("MAX(Стоимость)", "").ToString());
+            float minPrice = float.Parse(reportProjects.Compute("MIN(Стоимость)", "").ToString());
+            int activeCount = 0;
+            Dictionary<string, int> workerCount = new Dictionary<string, int>();
+            Dictionary<string, int> clientCount = new Dictionary<string, int>();
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter("ProjectsReport.txt", true))
+                {
+                    for (int i = 0; i < reportProjects.Rows.Count; i++)
+                    {
+                        writer.WriteLine($"Проект №: {reportProjects.Rows[i][0].ToString()} - {reportProjects.Rows[i][10].ToString()}");
+                        writer.WriteLine($"\tДоговор: {reportProjects.Rows[i][12].ToString()}");
+                        writer.WriteLine($"\tЗаказчик: {reportProjects.Rows[i][3].ToString()} ({reportProjects.Rows[i][1].ToString()})");
+                        writer.WriteLine($"\tСотрудник: {reportProjects.Rows[i][4].ToString()} ({reportProjects.Rows[i][2].ToString()})");
+                        writer.WriteLine($"\tОписание: {reportProjects.Rows[i][5].ToString()}");
+                        writer.WriteLine($"\tАдрес: {reportProjects.Rows[i][6].ToString()}");
+                        writer.WriteLine($"\tДата: {reportProjects.Rows[i][8].ToString()}-{reportProjects.Rows[i][9].ToString()}");
+                        writer.WriteLine($"\tСтоимость: {reportProjects.Rows[i][7].ToString()}");
+                        writer.WriteLine($"\tСпособ оплаты: {reportProjects.Rows[i][11].ToString()}");
+                        writer.WriteLine($"\n");
+
+                        if (workerCount.ContainsKey($"{reportProjects.Rows[i][4].ToString()} ({reportProjects.Rows[i][2].ToString()})"))
+                        {
+                            workerCount[$"{reportProjects.Rows[i][4].ToString()} ({reportProjects.Rows[i][2].ToString()})"]++;
+                        }
+                        else
+                        {
+                            workerCount.Add($"{reportProjects.Rows[i][4].ToString()} ({reportProjects.Rows[i][2].ToString()})", 1);
+                        }
+
+                        if (clientCount.ContainsKey($"{reportProjects.Rows[i][3].ToString()} ({reportProjects.Rows[i][1].ToString()})"))
+                        {
+                            clientCount[$"{reportProjects.Rows[i][3].ToString()} ({reportProjects.Rows[i][1].ToString()})"]++;
+                        }
+                        else
+                        {
+                            clientCount.Add($"{reportProjects.Rows[i][3].ToString()} ({reportProjects.Rows[i][1].ToString()})", 1);
+                        }
+
+                        if (reportProjects.Rows[i][10].ToString() == "Активен")
+                        {
+                            activeCount++;
+                        }
+                    }
+
+                    writer.WriteLine($"Всего в базе {reportProjects.Rows.Count} проектов, общей стоимостью {totalPrice} руб");
+                    writer.WriteLine($"\tАктивных: {activeCount}, завершенных: {reportProjects.Rows.Count - activeCount}");
+                    writer.WriteLine($"\tСамый дорогой проект: {maxPrice} руб, самый дешевый: {minPrice} руб");
+
+                    writer.WriteLine($"\nИнформация о заказчиках:");
+                    writer.WriteLine($"\tУникальных заказчиков: {clientCount.Count}");
+                    foreach (var client in clientCount.OrderByDescending(x => x.Value))
+                    {
+                        writer.WriteLine($"\t\t{client.Key} - {client.Value} проект(ов)");
+                    }
+
+                    writer.WriteLine($"\nИнформация о сотрудниках:");
+                    writer.WriteLine($"\tУникальных сотрудников: {workerCount.Count}");
+                    foreach (var worker in workerCount.OrderByDescending(x => x.Value))
+                    {
+                        writer.WriteLine($"\t\t{worker.Key} - {worker.Value} проект(ов)");
+                    }
+                }
+                MessageBox.Show("Отчет создан!");
+                Process.Start("ProjectsReport.txt");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при создании отчета! {ex.Message}");
+            }
+
         }
     }
 }

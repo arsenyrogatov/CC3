@@ -31,13 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkerForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Workers_tabPage = new System.Windows.Forms.TabPage();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.workerFind_textBox = new System.Windows.Forms.TextBox();
             this.wFemale_checkBox = new System.Windows.Forms.CheckBox();
+            this.workerFind_button = new System.Windows.Forms.Button();
             this.wMale_checkBox = new System.Windows.Forms.CheckBox();
             this.sotrFIOdesc_button = new System.Windows.Forms.Button();
             this.sotrFIOasc_button = new System.Windows.Forms.Button();
             this.label38 = new System.Windows.Forms.Label();
-            this.workerFind_button = new System.Windows.Forms.Button();
-            this.workerFind_textBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -67,13 +69,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.workers_dataGridView = new System.Windows.Forms.DataGridView();
             this.clients_tabPage = new System.Windows.Forms.TabPage();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.clientFind_textBox = new System.Windows.Forms.TextBox();
             this.clFem_checkBox = new System.Windows.Forms.CheckBox();
+            this.clientFind_button = new System.Windows.Forms.Button();
             this.clMale_checkBox = new System.Windows.Forms.CheckBox();
             this.clFIOdesc_button = new System.Windows.Forms.Button();
             this.clFIOasc_button = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
-            this.clientFind_button = new System.Windows.Forms.Button();
-            this.clientFind_textBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.addClient_button = new System.Windows.Forms.Button();
@@ -97,8 +101,12 @@
             this.label31 = new System.Windows.Forms.Label();
             this.clients_dataGridView = new System.Windows.Forms.DataGridView();
             this.Materials_tabPage = new System.Windows.Forms.TabPage();
-            this.matEdFilter_comboBox = new System.Windows.Forms.ComboBox();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.matFind_textBox = new System.Windows.Forms.TextBox();
+            this.matFind_button = new System.Windows.Forms.Button();
             this.matPricedesc_button = new System.Windows.Forms.Button();
+            this.matEdFilter_comboBox = new System.Windows.Forms.ComboBox();
             this.matPriceasc_button = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -112,8 +120,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.deliveries_dataGridView = new System.Windows.Forms.DataGridView();
-            this.matFind_button = new System.Windows.Forms.Button();
-            this.matFind_textBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.matPrice_textBox = new System.Windows.Forms.TextBox();
             this.matEd_comboBox = new System.Windows.Forms.ComboBox();
@@ -131,6 +137,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.materials_dataGridView = new System.Windows.Forms.DataGridView();
             this.Supplier_tabPage = new System.Windows.Forms.TabPage();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.supDesc_button = new System.Windows.Forms.Button();
             this.supAsc_button = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
@@ -155,9 +162,13 @@
             this.label53 = new System.Windows.Forms.Label();
             this.suppliers_dataGridView = new System.Windows.Forms.DataGridView();
             this.brigade_tabPage = new System.Windows.Forms.TabPage();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.brFind_textBox = new System.Windows.Forms.TextBox();
+            this.brFind_button = new System.Windows.Forms.Button();
+            this.br_checkBox = new System.Windows.Forms.CheckBox();
             this.brdesc_button = new System.Windows.Forms.Button();
             this.brasc_button = new System.Windows.Forms.Button();
-            this.br_checkBox = new System.Windows.Forms.CheckBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.brWorkerDel_button = new System.Windows.Forms.Button();
@@ -167,8 +178,6 @@
             this.label60 = new System.Windows.Forms.Label();
             this.brWorkers_dataGridView = new System.Windows.Forms.DataGridView();
             this.label48 = new System.Windows.Forms.Label();
-            this.brFind_button = new System.Windows.Forms.Button();
-            this.brFind_textBox = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.brigAdd_button = new System.Windows.Forms.Button();
             this.brigUpdate_button = new System.Windows.Forms.Button();
@@ -178,11 +187,13 @@
             this.label59 = new System.Windows.Forms.Label();
             this.brigade_dataGridView = new System.Windows.Forms.DataGridView();
             this.projects_tabPage = new System.Windows.Forms.TabPage();
-            this.card_checkBox = new System.Windows.Forms.CheckBox();
-            this.nal_checkBox = new System.Windows.Forms.CheckBox();
-            this.label55 = new System.Windows.Forms.Label();
-            this.prFind_button = new System.Windows.Forms.Button();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.prFind_textBox = new System.Windows.Forms.TextBox();
+            this.nal_checkBox = new System.Windows.Forms.CheckBox();
+            this.card_checkBox = new System.Windows.Forms.CheckBox();
+            this.prFind_button = new System.Windows.Forms.Button();
+            this.label55 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.prType_comboBox = new System.Windows.Forms.ComboBox();
             this.prPrice_textBox = new System.Windows.Forms.TextBox();
@@ -240,6 +251,7 @@
             this.label80 = new System.Windows.Forms.Label();
             this.work_dataGridView = new System.Windows.Forms.DataGridView();
             this.matCon_tabPage = new System.Windows.Forms.TabPage();
+            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.matConFind_button = new System.Windows.Forms.Button();
@@ -262,6 +274,7 @@
             this.RashUpdate_button = new System.Windows.Forms.Button();
             this.Rash_dataGridView = new System.Windows.Forms.DataGridView();
             this.sklad_tabPage = new System.Windows.Forms.TabPage();
+            this.linkLabel8 = new System.Windows.Forms.LinkLabel();
             this.sklad_comboBox = new System.Windows.Forms.ComboBox();
             this.skladdesc_button = new System.Windows.Forms.Button();
             this.skladasc_button = new System.Windows.Forms.Button();
@@ -306,30 +319,21 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel8 = new System.Windows.Forms.LinkLabel();
+            this.report_button = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Workers_tabPage.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ewStage_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workers_dataGridView)).BeginInit();
             this.clients_tabPage.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clients_dataGridView)).BeginInit();
             this.Materials_tabPage.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.delCount_numericUpDown)).BeginInit();
@@ -341,12 +345,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliers_dataGridView)).BeginInit();
             this.brigade_tabPage.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brWorkers_dataGridView)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.brigade_dataGridView)).BeginInit();
             this.projects_tabPage.SuspendLayout();
+            this.panel18.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projects_dataGridView)).BeginInit();
@@ -367,11 +373,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.worker_pictureBox)).BeginInit();
-            this.panel14.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel17.SuspendLayout();
-            this.panel18.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -410,6 +411,41 @@
             this.Workers_tabPage.Click += new System.EventHandler(this.Workers_tabPage_Click);
             this.Workers_tabPage.Enter += new System.EventHandler(this.Workers_tabPage_Enter);
             // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.linkLabel1);
+            this.panel14.Controls.Add(this.workerFind_textBox);
+            this.panel14.Controls.Add(this.wFemale_checkBox);
+            this.panel14.Controls.Add(this.workerFind_button);
+            this.panel14.Controls.Add(this.wMale_checkBox);
+            this.panel14.Location = new System.Drawing.Point(763, 8);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(361, 85);
+            this.panel14.TabIndex = 15;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(9, 61);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel1.TabIndex = 15;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Отменить поиск";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // workerFind_textBox
+            // 
+            this.workerFind_textBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.workerFind_textBox.ForeColor = System.Drawing.Color.Gray;
+            this.workerFind_textBox.Location = new System.Drawing.Point(9, 8);
+            this.workerFind_textBox.Name = "workerFind_textBox";
+            this.workerFind_textBox.Size = new System.Drawing.Size(268, 23);
+            this.workerFind_textBox.TabIndex = 2;
+            this.workerFind_textBox.Text = "ФИО или должность...";
+            this.workerFind_textBox.Enter += new System.EventHandler(this.workerFind_textBox_Enter);
+            this.workerFind_textBox.Leave += new System.EventHandler(this.workerFind_textBox_Leave);
+            // 
             // wFemale_checkBox
             // 
             this.wFemale_checkBox.AutoSize = true;
@@ -421,6 +457,18 @@
             this.wFemale_checkBox.TabIndex = 14;
             this.wFemale_checkBox.Text = "Женщины";
             this.wFemale_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // workerFind_button
+            // 
+            this.workerFind_button.AutoSize = true;
+            this.workerFind_button.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.workerFind_button.Location = new System.Drawing.Point(280, 6);
+            this.workerFind_button.Name = "workerFind_button";
+            this.workerFind_button.Size = new System.Drawing.Size(75, 27);
+            this.workerFind_button.TabIndex = 3;
+            this.workerFind_button.Text = "Поиск";
+            this.workerFind_button.UseVisualStyleBackColor = true;
+            this.workerFind_button.Click += new System.EventHandler(this.workerFind_button_Click);
             // 
             // wMale_checkBox
             // 
@@ -464,30 +512,6 @@
             this.label38.Size = new System.Drawing.Size(151, 25);
             this.label38.TabIndex = 10;
             this.label38.Text = "СОТРУДНИКИ";
-            // 
-            // workerFind_button
-            // 
-            this.workerFind_button.AutoSize = true;
-            this.workerFind_button.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.workerFind_button.Location = new System.Drawing.Point(280, 6);
-            this.workerFind_button.Name = "workerFind_button";
-            this.workerFind_button.Size = new System.Drawing.Size(75, 27);
-            this.workerFind_button.TabIndex = 3;
-            this.workerFind_button.Text = "Поиск";
-            this.workerFind_button.UseVisualStyleBackColor = true;
-            this.workerFind_button.Click += new System.EventHandler(this.workerFind_button_Click);
-            // 
-            // workerFind_textBox
-            // 
-            this.workerFind_textBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.workerFind_textBox.ForeColor = System.Drawing.Color.Gray;
-            this.workerFind_textBox.Location = new System.Drawing.Point(9, 8);
-            this.workerFind_textBox.Name = "workerFind_textBox";
-            this.workerFind_textBox.Size = new System.Drawing.Size(268, 23);
-            this.workerFind_textBox.TabIndex = 2;
-            this.workerFind_textBox.Text = "ФИО или должность...";
-            this.workerFind_textBox.Enter += new System.EventHandler(this.workerFind_textBox_Enter);
-            this.workerFind_textBox.Leave += new System.EventHandler(this.workerFind_textBox_Leave);
             // 
             // panel2
             // 
@@ -828,6 +852,41 @@
             this.clients_tabPage.UseVisualStyleBackColor = true;
             this.clients_tabPage.Enter += new System.EventHandler(this.clients_tabPage_Enter);
             // 
+            // panel15
+            // 
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.linkLabel2);
+            this.panel15.Controls.Add(this.clientFind_textBox);
+            this.panel15.Controls.Add(this.clFem_checkBox);
+            this.panel15.Controls.Add(this.clientFind_button);
+            this.panel15.Controls.Add(this.clMale_checkBox);
+            this.panel15.Location = new System.Drawing.Point(723, 11);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(415, 100);
+            this.panel15.TabIndex = 19;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(3, 62);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel2.TabIndex = 19;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Отменить поиск";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // clientFind_textBox
+            // 
+            this.clientFind_textBox.ForeColor = System.Drawing.Color.Gray;
+            this.clientFind_textBox.Location = new System.Drawing.Point(6, 7);
+            this.clientFind_textBox.Name = "clientFind_textBox";
+            this.clientFind_textBox.Size = new System.Drawing.Size(311, 23);
+            this.clientFind_textBox.TabIndex = 4;
+            this.clientFind_textBox.Text = "ФИО...";
+            this.clientFind_textBox.Enter += new System.EventHandler(this.clientFind_textBox_Enter);
+            this.clientFind_textBox.Leave += new System.EventHandler(this.clientFind_textBox_Leave);
+            // 
             // clFem_checkBox
             // 
             this.clFem_checkBox.AutoSize = true;
@@ -839,6 +898,17 @@
             this.clFem_checkBox.TabIndex = 18;
             this.clFem_checkBox.Text = "Женщины";
             this.clFem_checkBox.UseVisualStyleBackColor = true;
+            // 
+            // clientFind_button
+            // 
+            this.clientFind_button.AutoSize = true;
+            this.clientFind_button.Location = new System.Drawing.Point(323, 5);
+            this.clientFind_button.Name = "clientFind_button";
+            this.clientFind_button.Size = new System.Drawing.Size(75, 27);
+            this.clientFind_button.TabIndex = 5;
+            this.clientFind_button.Text = "Поиск";
+            this.clientFind_button.UseVisualStyleBackColor = true;
+            this.clientFind_button.Click += new System.EventHandler(this.clientFind_button_Click);
             // 
             // clMale_checkBox
             // 
@@ -882,28 +952,6 @@
             this.label39.Size = new System.Drawing.Size(133, 25);
             this.label39.TabIndex = 10;
             this.label39.Text = "ЗАКАЗЧИКИ";
-            // 
-            // clientFind_button
-            // 
-            this.clientFind_button.AutoSize = true;
-            this.clientFind_button.Location = new System.Drawing.Point(323, 5);
-            this.clientFind_button.Name = "clientFind_button";
-            this.clientFind_button.Size = new System.Drawing.Size(75, 27);
-            this.clientFind_button.TabIndex = 5;
-            this.clientFind_button.Text = "Поиск";
-            this.clientFind_button.UseVisualStyleBackColor = true;
-            this.clientFind_button.Click += new System.EventHandler(this.clientFind_button_Click);
-            // 
-            // clientFind_textBox
-            // 
-            this.clientFind_textBox.ForeColor = System.Drawing.Color.Gray;
-            this.clientFind_textBox.Location = new System.Drawing.Point(6, 7);
-            this.clientFind_textBox.Name = "clientFind_textBox";
-            this.clientFind_textBox.Size = new System.Drawing.Size(311, 23);
-            this.clientFind_textBox.TabIndex = 4;
-            this.clientFind_textBox.Text = "ФИО...";
-            this.clientFind_textBox.Enter += new System.EventHandler(this.clientFind_textBox_Enter);
-            this.clientFind_textBox.Leave += new System.EventHandler(this.clientFind_textBox_Leave);
             // 
             // panel3
             // 
@@ -1168,6 +1216,60 @@
             this.Materials_tabPage.UseVisualStyleBackColor = true;
             this.Materials_tabPage.Enter += new System.EventHandler(this.Materials_tabPage_Enter);
             // 
+            // panel16
+            // 
+            this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel16.Controls.Add(this.linkLabel3);
+            this.panel16.Controls.Add(this.matFind_textBox);
+            this.panel16.Controls.Add(this.matFind_button);
+            this.panel16.Location = new System.Drawing.Point(745, 319);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(393, 77);
+            this.panel16.TabIndex = 20;
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(3, 42);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel3.TabIndex = 20;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Отменить поиск";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
+            // matFind_textBox
+            // 
+            this.matFind_textBox.ForeColor = System.Drawing.Color.Gray;
+            this.matFind_textBox.Location = new System.Drawing.Point(6, 5);
+            this.matFind_textBox.Name = "matFind_textBox";
+            this.matFind_textBox.Size = new System.Drawing.Size(296, 23);
+            this.matFind_textBox.TabIndex = 6;
+            this.matFind_textBox.Text = "Поставщик или название материала...";
+            this.matFind_textBox.Enter += new System.EventHandler(this.matFind_textBox_Enter);
+            this.matFind_textBox.Leave += new System.EventHandler(this.matFind_textBox_Leave);
+            // 
+            // matFind_button
+            // 
+            this.matFind_button.AutoSize = true;
+            this.matFind_button.Location = new System.Drawing.Point(308, 3);
+            this.matFind_button.Name = "matFind_button";
+            this.matFind_button.Size = new System.Drawing.Size(75, 27);
+            this.matFind_button.TabIndex = 7;
+            this.matFind_button.Text = "Поиск";
+            this.matFind_button.UseVisualStyleBackColor = true;
+            this.matFind_button.Click += new System.EventHandler(this.matFind_button_Click);
+            // 
+            // matPricedesc_button
+            // 
+            this.matPricedesc_button.Location = new System.Drawing.Point(9, 26);
+            this.matPricedesc_button.Name = "matPricedesc_button";
+            this.matPricedesc_button.Size = new System.Drawing.Size(202, 23);
+            this.matPricedesc_button.TabIndex = 18;
+            this.matPricedesc_button.Text = "Стоимость по убыванию";
+            this.matPricedesc_button.UseVisualStyleBackColor = true;
+            this.matPricedesc_button.Click += new System.EventHandler(this.matPricedesc_button_Click);
+            // 
             // matEdFilter_comboBox
             // 
             this.matEdFilter_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1183,16 +1285,6 @@
             this.matEdFilter_comboBox.Name = "matEdFilter_comboBox";
             this.matEdFilter_comboBox.Size = new System.Drawing.Size(157, 25);
             this.matEdFilter_comboBox.TabIndex = 19;
-            // 
-            // matPricedesc_button
-            // 
-            this.matPricedesc_button.Location = new System.Drawing.Point(9, 26);
-            this.matPricedesc_button.Name = "matPricedesc_button";
-            this.matPricedesc_button.Size = new System.Drawing.Size(202, 23);
-            this.matPricedesc_button.TabIndex = 18;
-            this.matPricedesc_button.Text = "Стоимость по убыванию";
-            this.matPricedesc_button.UseVisualStyleBackColor = true;
-            this.matPricedesc_button.Click += new System.EventHandler(this.matPricedesc_button_Click);
             // 
             // matPriceasc_button
             // 
@@ -1348,28 +1440,6 @@
             this.deliveries_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.deliveries_dataGridView.Size = new System.Drawing.Size(730, 272);
             this.deliveries_dataGridView.TabIndex = 8;
-            // 
-            // matFind_button
-            // 
-            this.matFind_button.AutoSize = true;
-            this.matFind_button.Location = new System.Drawing.Point(308, 3);
-            this.matFind_button.Name = "matFind_button";
-            this.matFind_button.Size = new System.Drawing.Size(75, 27);
-            this.matFind_button.TabIndex = 7;
-            this.matFind_button.Text = "Поиск";
-            this.matFind_button.UseVisualStyleBackColor = true;
-            this.matFind_button.Click += new System.EventHandler(this.matFind_button_Click);
-            // 
-            // matFind_textBox
-            // 
-            this.matFind_textBox.ForeColor = System.Drawing.Color.Gray;
-            this.matFind_textBox.Location = new System.Drawing.Point(6, 5);
-            this.matFind_textBox.Name = "matFind_textBox";
-            this.matFind_textBox.Size = new System.Drawing.Size(296, 23);
-            this.matFind_textBox.TabIndex = 6;
-            this.matFind_textBox.Text = "Поставщик или название материала...";
-            this.matFind_textBox.Enter += new System.EventHandler(this.matFind_textBox_Enter);
-            this.matFind_textBox.Leave += new System.EventHandler(this.matFind_textBox_Leave);
             // 
             // panel4
             // 
@@ -1576,6 +1646,17 @@
             this.Supplier_tabPage.Text = "Учет поставщиков";
             this.Supplier_tabPage.UseVisualStyleBackColor = true;
             this.Supplier_tabPage.Enter += new System.EventHandler(this.Supplier_tabPage_Enter);
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Location = new System.Drawing.Point(783, 38);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel4.TabIndex = 21;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Отменить поиск";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // supDesc_button
             // 
@@ -1846,6 +1927,61 @@
             this.brigade_tabPage.UseVisualStyleBackColor = true;
             this.brigade_tabPage.Enter += new System.EventHandler(this.brigade_tabPage_Enter);
             // 
+            // panel17
+            // 
+            this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel17.Controls.Add(this.linkLabel5);
+            this.panel17.Controls.Add(this.brFind_textBox);
+            this.panel17.Controls.Add(this.brFind_button);
+            this.panel17.Controls.Add(this.br_checkBox);
+            this.panel17.Location = new System.Drawing.Point(722, 10);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(416, 102);
+            this.panel17.TabIndex = 27;
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Location = new System.Drawing.Point(4, 74);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel5.TabIndex = 25;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Отменить поиск";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
+            // brFind_textBox
+            // 
+            this.brFind_textBox.ForeColor = System.Drawing.Color.Gray;
+            this.brFind_textBox.Location = new System.Drawing.Point(6, 7);
+            this.brFind_textBox.Name = "brFind_textBox";
+            this.brFind_textBox.Size = new System.Drawing.Size(235, 23);
+            this.brFind_textBox.TabIndex = 18;
+            this.brFind_textBox.Text = "Название...";
+            this.brFind_textBox.Enter += new System.EventHandler(this.brFind_textBox_Enter);
+            this.brFind_textBox.Leave += new System.EventHandler(this.brFind_textBox_Leave);
+            // 
+            // brFind_button
+            // 
+            this.brFind_button.AutoSize = true;
+            this.brFind_button.Location = new System.Drawing.Point(247, 5);
+            this.brFind_button.Name = "brFind_button";
+            this.brFind_button.Size = new System.Drawing.Size(75, 27);
+            this.brFind_button.TabIndex = 19;
+            this.brFind_button.Text = "Поиск";
+            this.brFind_button.UseVisualStyleBackColor = true;
+            this.brFind_button.Click += new System.EventHandler(this.brFind_button_Click);
+            // 
+            // br_checkBox
+            // 
+            this.br_checkBox.AutoSize = true;
+            this.br_checkBox.Location = new System.Drawing.Point(6, 36);
+            this.br_checkBox.Name = "br_checkBox";
+            this.br_checkBox.Size = new System.Drawing.Size(182, 21);
+            this.br_checkBox.TabIndex = 24;
+            this.br_checkBox.Text = "Только с сотрудниками";
+            this.br_checkBox.UseVisualStyleBackColor = true;
+            // 
             // brdesc_button
             // 
             this.brdesc_button.Location = new System.Drawing.Point(6, 34);
@@ -1865,16 +2001,6 @@
             this.brasc_button.Text = "Кол-во по возрастанию";
             this.brasc_button.UseVisualStyleBackColor = true;
             this.brasc_button.Click += new System.EventHandler(this.brasc_button_Click);
-            // 
-            // br_checkBox
-            // 
-            this.br_checkBox.AutoSize = true;
-            this.br_checkBox.Location = new System.Drawing.Point(6, 36);
-            this.br_checkBox.Name = "br_checkBox";
-            this.br_checkBox.Size = new System.Drawing.Size(182, 21);
-            this.br_checkBox.TabIndex = 24;
-            this.br_checkBox.Text = "Только с сотрудниками";
-            this.br_checkBox.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
@@ -1976,28 +2102,6 @@
             this.label48.Size = new System.Drawing.Size(110, 25);
             this.label48.TabIndex = 20;
             this.label48.Text = "БРИГАДЫ";
-            // 
-            // brFind_button
-            // 
-            this.brFind_button.AutoSize = true;
-            this.brFind_button.Location = new System.Drawing.Point(247, 5);
-            this.brFind_button.Name = "brFind_button";
-            this.brFind_button.Size = new System.Drawing.Size(75, 27);
-            this.brFind_button.TabIndex = 19;
-            this.brFind_button.Text = "Поиск";
-            this.brFind_button.UseVisualStyleBackColor = true;
-            this.brFind_button.Click += new System.EventHandler(this.brFind_button_Click);
-            // 
-            // brFind_textBox
-            // 
-            this.brFind_textBox.ForeColor = System.Drawing.Color.Gray;
-            this.brFind_textBox.Location = new System.Drawing.Point(6, 7);
-            this.brFind_textBox.Name = "brFind_textBox";
-            this.brFind_textBox.Size = new System.Drawing.Size(235, 23);
-            this.brFind_textBox.TabIndex = 18;
-            this.brFind_textBox.Text = "Название...";
-            this.brFind_textBox.Enter += new System.EventHandler(this.brFind_textBox_Enter);
-            this.brFind_textBox.Leave += new System.EventHandler(this.brFind_textBox_Leave);
             // 
             // panel7
             // 
@@ -2105,17 +2209,40 @@
             this.projects_tabPage.UseVisualStyleBackColor = true;
             this.projects_tabPage.Enter += new System.EventHandler(this.projects_tabPage_Enter);
             // 
-            // card_checkBox
+            // panel18
             // 
-            this.card_checkBox.AutoSize = true;
-            this.card_checkBox.Checked = true;
-            this.card_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.card_checkBox.Location = new System.Drawing.Point(96, 34);
-            this.card_checkBox.Name = "card_checkBox";
-            this.card_checkBox.Size = new System.Drawing.Size(120, 21);
-            this.card_checkBox.TabIndex = 27;
-            this.card_checkBox.Text = "Завершенные";
-            this.card_checkBox.UseVisualStyleBackColor = true;
+            this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel18.Controls.Add(this.linkLabel6);
+            this.panel18.Controls.Add(this.prFind_textBox);
+            this.panel18.Controls.Add(this.nal_checkBox);
+            this.panel18.Controls.Add(this.card_checkBox);
+            this.panel18.Controls.Add(this.prFind_button);
+            this.panel18.Location = new System.Drawing.Point(722, 6);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(404, 84);
+            this.panel18.TabIndex = 28;
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Location = new System.Drawing.Point(3, 58);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel6.TabIndex = 28;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "Отменить поиск";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
+            // 
+            // prFind_textBox
+            // 
+            this.prFind_textBox.ForeColor = System.Drawing.Color.Gray;
+            this.prFind_textBox.Location = new System.Drawing.Point(3, 5);
+            this.prFind_textBox.Name = "prFind_textBox";
+            this.prFind_textBox.Size = new System.Drawing.Size(308, 23);
+            this.prFind_textBox.TabIndex = 23;
+            this.prFind_textBox.Text = "Адрес, заказчик, сотрудник или описание...";
+            this.prFind_textBox.Enter += new System.EventHandler(this.prFind_textBox_Enter);
+            this.prFind_textBox.Leave += new System.EventHandler(this.prFind_textBox_Leave);
             // 
             // nal_checkBox
             // 
@@ -2129,16 +2256,17 @@
             this.nal_checkBox.Text = "Активные";
             this.nal_checkBox.UseVisualStyleBackColor = true;
             // 
-            // label55
+            // card_checkBox
             // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label55.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label55.Location = new System.Drawing.Point(347, 11);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(107, 25);
-            this.label55.TabIndex = 25;
-            this.label55.Text = "ПРОЕКТЫ";
+            this.card_checkBox.AutoSize = true;
+            this.card_checkBox.Checked = true;
+            this.card_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.card_checkBox.Location = new System.Drawing.Point(96, 34);
+            this.card_checkBox.Name = "card_checkBox";
+            this.card_checkBox.Size = new System.Drawing.Size(120, 21);
+            this.card_checkBox.TabIndex = 27;
+            this.card_checkBox.Text = "Завершенные";
+            this.card_checkBox.UseVisualStyleBackColor = true;
             // 
             // prFind_button
             // 
@@ -2151,20 +2279,21 @@
             this.prFind_button.UseVisualStyleBackColor = true;
             this.prFind_button.Click += new System.EventHandler(this.prFind_button_Click);
             // 
-            // prFind_textBox
+            // label55
             // 
-            this.prFind_textBox.ForeColor = System.Drawing.Color.Gray;
-            this.prFind_textBox.Location = new System.Drawing.Point(3, 5);
-            this.prFind_textBox.Name = "prFind_textBox";
-            this.prFind_textBox.Size = new System.Drawing.Size(308, 23);
-            this.prFind_textBox.TabIndex = 23;
-            this.prFind_textBox.Text = "Адрес, заказчик, сотрудник или описание...";
-            this.prFind_textBox.Enter += new System.EventHandler(this.prFind_textBox_Enter);
-            this.prFind_textBox.Leave += new System.EventHandler(this.prFind_textBox_Leave);
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label55.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label55.Location = new System.Drawing.Point(347, 11);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(107, 25);
+            this.label55.TabIndex = 25;
+            this.label55.Text = "ПРОЕКТЫ";
             // 
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.report_button);
             this.panel9.Controls.Add(this.prType_comboBox);
             this.panel9.Controls.Add(this.prPrice_textBox);
             this.panel9.Controls.Add(this.pictureBox5);
@@ -2807,6 +2936,17 @@
             this.matCon_tabPage.UseVisualStyleBackColor = true;
             this.matCon_tabPage.Enter += new System.EventHandler(this.matCon_tabPage_Enter);
             // 
+            // linkLabel7
+            // 
+            this.linkLabel7.AutoSize = true;
+            this.linkLabel7.Location = new System.Drawing.Point(749, 74);
+            this.linkLabel7.Name = "linkLabel7";
+            this.linkLabel7.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel7.TabIndex = 42;
+            this.linkLabel7.TabStop = true;
+            this.linkLabel7.Text = "Отменить поиск";
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel7_LinkClicked);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(541, 29);
@@ -3073,6 +3213,17 @@
             this.sklad_tabPage.Text = "Склад";
             this.sklad_tabPage.UseVisualStyleBackColor = true;
             this.sklad_tabPage.Enter += new System.EventHandler(this.sklad_tabPage_Enter);
+            // 
+            // linkLabel8
+            // 
+            this.linkLabel8.AutoSize = true;
+            this.linkLabel8.Location = new System.Drawing.Point(739, 42);
+            this.linkLabel8.Name = "linkLabel8";
+            this.linkLabel8.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel8.TabIndex = 28;
+            this.linkLabel8.TabStop = true;
+            this.linkLabel8.Text = "Отменить поиск";
+            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
             // 
             // sklad_comboBox
             // 
@@ -3581,154 +3732,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Код";
             // 
-            // panel14
+            // report_button
             // 
-            this.panel14.Controls.Add(this.linkLabel1);
-            this.panel14.Controls.Add(this.workerFind_textBox);
-            this.panel14.Controls.Add(this.wFemale_checkBox);
-            this.panel14.Controls.Add(this.workerFind_button);
-            this.panel14.Controls.Add(this.wMale_checkBox);
-            this.panel14.Location = new System.Drawing.Point(763, 8);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(361, 85);
-            this.panel14.TabIndex = 15;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(9, 61);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(114, 17);
-            this.linkLabel1.TabIndex = 15;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Отменить поиск";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // panel15
-            // 
-            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel15.Controls.Add(this.linkLabel2);
-            this.panel15.Controls.Add(this.clientFind_textBox);
-            this.panel15.Controls.Add(this.clFem_checkBox);
-            this.panel15.Controls.Add(this.clientFind_button);
-            this.panel15.Controls.Add(this.clMale_checkBox);
-            this.panel15.Location = new System.Drawing.Point(723, 11);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(415, 100);
-            this.panel15.TabIndex = 19;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(3, 62);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(114, 17);
-            this.linkLabel2.TabIndex = 19;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Отменить поиск";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
-            // panel16
-            // 
-            this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel16.Controls.Add(this.linkLabel3);
-            this.panel16.Controls.Add(this.matFind_textBox);
-            this.panel16.Controls.Add(this.matFind_button);
-            this.panel16.Location = new System.Drawing.Point(745, 319);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(393, 77);
-            this.panel16.TabIndex = 20;
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(3, 42);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(114, 17);
-            this.linkLabel3.TabIndex = 20;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Отменить поиск";
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
-            // 
-            // linkLabel4
-            // 
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.Location = new System.Drawing.Point(783, 38);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(114, 17);
-            this.linkLabel4.TabIndex = 21;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "Отменить поиск";
-            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
-            // 
-            // panel17
-            // 
-            this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel17.Controls.Add(this.linkLabel5);
-            this.panel17.Controls.Add(this.brFind_textBox);
-            this.panel17.Controls.Add(this.brFind_button);
-            this.panel17.Controls.Add(this.br_checkBox);
-            this.panel17.Location = new System.Drawing.Point(722, 10);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(416, 102);
-            this.panel17.TabIndex = 27;
-            // 
-            // linkLabel5
-            // 
-            this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Location = new System.Drawing.Point(4, 74);
-            this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(114, 17);
-            this.linkLabel5.TabIndex = 25;
-            this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "Отменить поиск";
-            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
-            // 
-            // panel18
-            // 
-            this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel18.Controls.Add(this.linkLabel6);
-            this.panel18.Controls.Add(this.prFind_textBox);
-            this.panel18.Controls.Add(this.nal_checkBox);
-            this.panel18.Controls.Add(this.card_checkBox);
-            this.panel18.Controls.Add(this.prFind_button);
-            this.panel18.Location = new System.Drawing.Point(722, 6);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(404, 84);
-            this.panel18.TabIndex = 28;
-            // 
-            // linkLabel6
-            // 
-            this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Location = new System.Drawing.Point(3, 58);
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(114, 17);
-            this.linkLabel6.TabIndex = 28;
-            this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "Отменить поиск";
-            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
-            // 
-            // linkLabel7
-            // 
-            this.linkLabel7.AutoSize = true;
-            this.linkLabel7.Location = new System.Drawing.Point(749, 74);
-            this.linkLabel7.Name = "linkLabel7";
-            this.linkLabel7.Size = new System.Drawing.Size(114, 17);
-            this.linkLabel7.TabIndex = 42;
-            this.linkLabel7.TabStop = true;
-            this.linkLabel7.Text = "Отменить поиск";
-            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel7_LinkClicked);
-            // 
-            // linkLabel8
-            // 
-            this.linkLabel8.AutoSize = true;
-            this.linkLabel8.Location = new System.Drawing.Point(739, 42);
-            this.linkLabel8.Name = "linkLabel8";
-            this.linkLabel8.Size = new System.Drawing.Size(114, 17);
-            this.linkLabel8.TabIndex = 28;
-            this.linkLabel8.TabStop = true;
-            this.linkLabel8.Text = "Отменить поиск";
-            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
+            this.report_button.Location = new System.Drawing.Point(295, 401);
+            this.report_button.Name = "report_button";
+            this.report_button.Size = new System.Drawing.Size(75, 23);
+            this.report_button.TabIndex = 55;
+            this.report_button.Text = "Отчет";
+            this.report_button.UseVisualStyleBackColor = true;
+            this.report_button.Click += new System.EventHandler(this.report_button_Click);
             // 
             // WorkerForm
             // 
@@ -3749,6 +3761,8 @@
             this.tabControl1.ResumeLayout(false);
             this.Workers_tabPage.ResumeLayout(false);
             this.Workers_tabPage.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -3756,12 +3770,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.workers_dataGridView)).EndInit();
             this.clients_tabPage.ResumeLayout(false);
             this.clients_tabPage.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clients_dataGridView)).EndInit();
             this.Materials_tabPage.ResumeLayout(false);
             this.Materials_tabPage.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -3778,6 +3796,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.suppliers_dataGridView)).EndInit();
             this.brigade_tabPage.ResumeLayout(false);
             this.brigade_tabPage.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -3787,6 +3807,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.brigade_dataGridView)).EndInit();
             this.projects_tabPage.ResumeLayout(false);
             this.projects_tabPage.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -3816,16 +3838,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.worker_pictureBox)).EndInit();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4122,5 +4134,6 @@
         private System.Windows.Forms.LinkLabel linkLabel6;
         private System.Windows.Forms.LinkLabel linkLabel7;
         private System.Windows.Forms.LinkLabel linkLabel8;
+        private System.Windows.Forms.Button report_button;
     }
 }
