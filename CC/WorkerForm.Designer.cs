@@ -195,6 +195,7 @@
             this.prFind_button = new System.Windows.Forms.Button();
             this.label55 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.report_button = new System.Windows.Forms.Button();
             this.prType_comboBox = new System.Windows.Forms.ComboBox();
             this.prPrice_textBox = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -319,7 +320,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.report_button = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Workers_tabPage.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -2325,6 +2325,16 @@
             this.panel9.Size = new System.Drawing.Size(404, 529);
             this.panel9.TabIndex = 22;
             // 
+            // report_button
+            // 
+            this.report_button.Location = new System.Drawing.Point(295, 401);
+            this.report_button.Name = "report_button";
+            this.report_button.Size = new System.Drawing.Size(75, 23);
+            this.report_button.TabIndex = 55;
+            this.report_button.Text = "Отчет";
+            this.report_button.UseVisualStyleBackColor = true;
+            this.report_button.Click += new System.EventHandler(this.report_button_Click);
+            // 
             // prType_comboBox
             // 
             this.prType_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -3230,7 +3240,7 @@
             this.sklad_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sklad_comboBox.FormattingEnabled = true;
             this.sklad_comboBox.Items.AddRange(new object[] {
-            "Любые",
+            "Любая ед. изм.",
             "кг",
             "шт",
             "рул",
@@ -3731,16 +3741,6 @@
             this.label1.Size = new System.Drawing.Size(31, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Код";
-            // 
-            // report_button
-            // 
-            this.report_button.Location = new System.Drawing.Point(295, 401);
-            this.report_button.Name = "report_button";
-            this.report_button.Size = new System.Drawing.Size(75, 23);
-            this.report_button.TabIndex = 55;
-            this.report_button.Text = "Отчет";
-            this.report_button.UseVisualStyleBackColor = true;
-            this.report_button.Click += new System.EventHandler(this.report_button_Click);
             // 
             // WorkerForm
             // 

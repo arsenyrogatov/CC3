@@ -336,10 +336,17 @@ namespace CC
             Count = count;
         }
 
-        public void Update()
+        public void Update(int oldmatId, int oldworkId)
         {
             System.Data.SqlClient.SqlCommand UpdateMatCon = new System.Data.SqlClient.SqlCommand("UpdateMatCon", DBConnection.connection);
             UpdateMatCon.CommandType = System.Data.CommandType.StoredProcedure;
+
+            UpdateMatCon.Parameters.Add("@oldMatId", System.Data.SqlDbType.Int);
+            UpdateMatCon.Parameters["@oldMatId"].Value = oldmatId;
+
+            UpdateMatCon.Parameters.Add("@oldWorkId", System.Data.SqlDbType.Int);
+            UpdateMatCon.Parameters["@oldWorkId"].Value = oldworkId;
+
             UpdateMatCon.Parameters.Add("@MatId", System.Data.SqlDbType.Int);
             UpdateMatCon.Parameters["@MatId"].Value = MatId;
 
@@ -789,7 +796,7 @@ namespace CC
             UpdateMaterial.Parameters.Add("@Id", System.Data.SqlDbType.Int);
             UpdateMaterial.Parameters["@Id"].Value = Id;
 
-            UpdateMaterial.Parameters.Add("@Name", System.Data.SqlDbType.VarChar, 50);
+            UpdateMaterial.Parameters.Add("@Name", System.Data.SqlDbType.VarChar, 200);
             UpdateMaterial.Parameters["@Name"].Value = Name;
 
             UpdateMaterial.Parameters.Add("@Ed", System.Data.SqlDbType.VarChar, 10);
@@ -808,7 +815,7 @@ namespace CC
             System.Data.SqlClient.SqlCommand UpdateMaterial = new System.Data.SqlClient.SqlCommand("AddMaterial", DBConnection.connection);
             UpdateMaterial.CommandType = System.Data.CommandType.StoredProcedure;
 
-            UpdateMaterial.Parameters.Add("@Name", System.Data.SqlDbType.VarChar, 50);
+            UpdateMaterial.Parameters.Add("@Name", System.Data.SqlDbType.VarChar,200);
             UpdateMaterial.Parameters["@Name"].Value = Name;
 
             UpdateMaterial.Parameters.Add("@Ed", System.Data.SqlDbType.VarChar, 10);

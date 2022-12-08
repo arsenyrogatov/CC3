@@ -21,6 +21,9 @@ namespace CC
             ewPas2_maskedTextBox.Text = CurrentWorker.Passport.Split(new char[] {' '})[1];
             ewPhone_maskedTextBox.Text = CurrentWorker.Phone;
             ewMail_textBox.Text = CurrentWorker.Mail;
+
+            ewFio_textBox.Enabled = CurrentWorker.Job == "Генеральный директор";
+            
         }
 
         private void updateWorker_button_Click(object sender, EventArgs e)

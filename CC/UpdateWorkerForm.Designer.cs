@@ -170,6 +170,7 @@
             this.ewFio_textBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ewFio_textBox.Location = new System.Drawing.Point(113, 36);
             this.ewFio_textBox.Name = "ewFio_textBox";
+            this.ewFio_textBox.ReadOnly = true;
             this.ewFio_textBox.Size = new System.Drawing.Size(323, 23);
             this.ewFio_textBox.TabIndex = 3;
             this.ewFio_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ewFio_textBox_KeyPress);
