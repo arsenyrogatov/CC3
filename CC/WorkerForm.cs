@@ -21,6 +21,7 @@ namespace CC
         const string supHint = "ФИО или фирма...";
         const string brHint = "Название...";
         const string prHint = "Адрес, заказчик, сотрудник или описание...";
+        const string workHint = "Название бригады, наименование или тип...";
 
         public WorkerForm()
         {
@@ -52,6 +53,7 @@ namespace CC
                 tabControl1.TabPages.Remove(brigade_tabPage);
                 tabControl1.TabPages.Remove(work_tabPage);
                 tabControl1.TabPages.Remove(matCon_tabPage);
+                report_button.Visible = true;
             }
             else if (CurrentWorker.Job == "Аритектор") //architect
             {
@@ -78,6 +80,8 @@ namespace CC
                 tabControl1.TabPages.Remove(brigade_tabPage);
                 tabControl1.TabPages.Remove(work_tabPage);
                 tabControl1.TabPages.Remove(sklad_tabPage);
+                label82.Visible = true;
+                totalProj_label.Visible = true;
             }
             else if (CurrentWorker.Job == "Главный бухгалтер")
             {
@@ -87,6 +91,8 @@ namespace CC
                 tabControl1.TabPages.Remove(brigade_tabPage);
                 tabControl1.TabPages.Remove(work_tabPage);
                 tabControl1.TabPages.Remove(sklad_tabPage);
+                label82.Visible = true;
+                totalProj_label.Visible = true;
             }
             else if (CurrentWorker.Job == "Архитектор-конструктор")
             {
@@ -1061,8 +1067,7 @@ namespace CC
         private void matCon_tabPage_Enter(object sender, EventArgs e)
         {
             UpdateMatCon();
-                label82.Visible = CurrentWorker.Job.ToLower() != "главный инженер";
-                totalProj_label.Visible = CurrentWorker.Job.ToLower() != "главный инженер";
+
         }
 
         private void Rash_dataGridView_SelectionChanged(object sender, EventArgs e)
@@ -1677,6 +1682,39 @@ namespace CC
                 MessageBox.Show($"Ошибка при создании отчета! {ex.Message}");
             }
 
+        }
+
+        private void workFind_textBox_Leave(object sender, EventArgs e)
+        {
+            if (matConFind_textBox.Text.Length == 0)
+            {
+                workFind_textBox.Text = workHint;
+                workFind_textBox.ForeColor = Color.Gray;
+            }
+        }
+
+        private void workFind_textBox_Enter(object sender, EventArgs e)
+        {
+            if (workFind_textBox.Text == workHint)
+            {
+                workFind_textBox.Text = "";
+                workFind_textBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void workFind_button_Click(object sender, EventArgs e)
+        {
+            string filter = "";
+            if (workFind_textBox.Text != workHint)
+            {
+                filter = $"[Наименование работы] LIKE '%{workFind_textBox.Text}%' OR [Тип] LIKE '%{workFind_textBox.Text}%' OR [Название бригады] LIKE '%{workFind_textBox.Text}%'";
+            }
+                ((DataTable)work_dataGridView.DataSource).DefaultView.RowFilter = filter;
+        }
+
+        private void linkLabel9_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ((DataTable)work_dataGridView.DataSource).DefaultView.RowFilter = "";
         }
     }
 }

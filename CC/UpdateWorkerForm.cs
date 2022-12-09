@@ -34,16 +34,20 @@ namespace CC
                 && ewPhone_maskedTextBox.MaskCompleted && ewMail_textBox.Text.Length > 0)
             {
                 Worker worker = new Worker(CurrentWorker.Id,
-                    ewFio_textBox.Text, int.Parse(ewPas1_maskedTextBox.Text),
-                    int.Parse(ewPas2_maskedTextBox.Text), CurrentWorker.Birth,
-                    CurrentWorker.Gen, CurrentWorker.Job,
-                    CurrentWorker.Stage, ewPhone_maskedTextBox.Text,
+                    ewFio_textBox.Text, 
+                    int.Parse(ewPas1_maskedTextBox.Text),
+                    int.Parse(ewPas2_maskedTextBox.Text), 
+                    CurrentWorker.Birth,
+                    CurrentWorker.Gen, 
+                    CurrentWorker.Job,
+                    CurrentWorker.Stage, 
+                    ewPhone_maskedTextBox.Text,
                     ewMail_textBox.Text);
 
                 if (worker.Update())
                 {
                     MessageBox.Show("Данные обновлены!");
-                    CurrentWorker.Login(worker.Phone, worker.Id);
+                    CurrentWorker.Login(CurrentWorker.Job, worker.Id);
                     Close();
                 }
                 else

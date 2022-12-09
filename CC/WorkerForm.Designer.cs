@@ -320,6 +320,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel9 = new System.Windows.Forms.LinkLabel();
+            this.workFind_button = new System.Windows.Forms.Button();
+            this.workFind_textBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.Workers_tabPage.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -2327,12 +2330,13 @@
             // 
             // report_button
             // 
-            this.report_button.Location = new System.Drawing.Point(295, 401);
+            this.report_button.Location = new System.Drawing.Point(113, 401);
             this.report_button.Name = "report_button";
-            this.report_button.Size = new System.Drawing.Size(75, 23);
+            this.report_button.Size = new System.Drawing.Size(257, 23);
             this.report_button.TabIndex = 55;
-            this.report_button.Text = "Отчет";
+            this.report_button.Text = "Отчет по проданным объектам";
             this.report_button.UseVisualStyleBackColor = true;
+            this.report_button.Visible = false;
             this.report_button.Click += new System.EventHandler(this.report_button_Click);
             // 
             // prType_comboBox
@@ -2359,7 +2363,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImage = global::CC.Properties.Resources.free_icon_big_house_3033232;
-            this.pictureBox5.Location = new System.Drawing.Point(171, 377);
+            this.pictureBox5.Location = new System.Drawing.Point(23, 377);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(67, 62);
             this.pictureBox5.TabIndex = 52;
@@ -2613,6 +2617,9 @@
             // 
             // work_tabPage
             // 
+            this.work_tabPage.Controls.Add(this.linkLabel9);
+            this.work_tabPage.Controls.Add(this.workFind_button);
+            this.work_tabPage.Controls.Add(this.workFind_textBox);
             this.work_tabPage.Controls.Add(this.panel11);
             this.work_tabPage.Controls.Add(this.label37);
             this.work_tabPage.Controls.Add(this.cmpWork_dataGridView);
@@ -2631,6 +2638,7 @@
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.pictureBox6);
             this.panel11.Controls.Add(this.cPr_comboBox);
             this.panel11.Controls.Add(this.label78);
             this.panel11.Controls.Add(this.cEnd_dateTimePicker);
@@ -2785,7 +2793,6 @@
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.pictureBox6);
             this.panel10.Controls.Add(this.wrType_textBox);
             this.panel10.Controls.Add(this.label75);
             this.panel10.Controls.Add(this.label76);
@@ -2796,15 +2803,15 @@
             this.panel10.Controls.Add(this.wrId_label);
             this.panel10.Controls.Add(this.wrName_textBox);
             this.panel10.Controls.Add(this.label80);
-            this.panel10.Location = new System.Drawing.Point(788, 41);
+            this.panel10.Location = new System.Drawing.Point(788, 77);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(350, 268);
+            this.panel10.Size = new System.Drawing.Size(350, 232);
             this.panel10.TabIndex = 27;
             // 
             // pictureBox6
             // 
             this.pictureBox6.BackgroundImage = global::CC.Properties.Resources.free_icon_hammer_6788573;
-            this.pictureBox6.Location = new System.Drawing.Point(156, 132);
+            this.pictureBox6.Location = new System.Drawing.Point(143, 132);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(60, 49);
             this.pictureBox6.TabIndex = 38;
@@ -2862,7 +2869,7 @@
             // wrAdd_button
             // 
             this.wrAdd_button.AutoSize = true;
-            this.wrAdd_button.Location = new System.Drawing.Point(22, 221);
+            this.wrAdd_button.Location = new System.Drawing.Point(22, 169);
             this.wrAdd_button.Name = "wrAdd_button";
             this.wrAdd_button.Size = new System.Drawing.Size(303, 27);
             this.wrAdd_button.TabIndex = 31;
@@ -2873,7 +2880,7 @@
             // wrUpdate_button
             // 
             this.wrUpdate_button.AutoSize = true;
-            this.wrUpdate_button.Location = new System.Drawing.Point(22, 188);
+            this.wrUpdate_button.Location = new System.Drawing.Point(22, 136);
             this.wrUpdate_button.Name = "wrUpdate_button";
             this.wrUpdate_button.Size = new System.Drawing.Size(303, 27);
             this.wrUpdate_button.TabIndex = 29;
@@ -3061,6 +3068,7 @@
             this.totalProj_label.Size = new System.Drawing.Size(156, 18);
             this.totalProj_label.TabIndex = 41;
             this.totalProj_label.Text = "Всего для проекта:";
+            this.totalProj_label.Visible = false;
             // 
             // label82
             // 
@@ -3072,6 +3080,7 @@
             this.label82.Size = new System.Drawing.Size(137, 18);
             this.label82.TabIndex = 40;
             this.label82.Text = "Всего расходов:";
+            this.label82.Visible = false;
             // 
             // pictureBox7
             // 
@@ -3742,6 +3751,39 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Код";
             // 
+            // linkLabel9
+            // 
+            this.linkLabel9.AutoSize = true;
+            this.linkLabel9.Location = new System.Drawing.Point(785, 44);
+            this.linkLabel9.Name = "linkLabel9";
+            this.linkLabel9.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel9.TabIndex = 45;
+            this.linkLabel9.TabStop = true;
+            this.linkLabel9.Text = "Отменить поиск";
+            this.linkLabel9.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel9_LinkClicked);
+            // 
+            // workFind_button
+            // 
+            this.workFind_button.AutoSize = true;
+            this.workFind_button.Location = new System.Drawing.Point(1049, 16);
+            this.workFind_button.Name = "workFind_button";
+            this.workFind_button.Size = new System.Drawing.Size(75, 27);
+            this.workFind_button.TabIndex = 44;
+            this.workFind_button.Text = "Поиск";
+            this.workFind_button.UseVisualStyleBackColor = true;
+            this.workFind_button.Click += new System.EventHandler(this.workFind_button_Click);
+            // 
+            // workFind_textBox
+            // 
+            this.workFind_textBox.ForeColor = System.Drawing.Color.Gray;
+            this.workFind_textBox.Location = new System.Drawing.Point(788, 18);
+            this.workFind_textBox.Name = "workFind_textBox";
+            this.workFind_textBox.Size = new System.Drawing.Size(255, 23);
+            this.workFind_textBox.TabIndex = 43;
+            this.workFind_textBox.Text = "Название бригады, наименование или тип...";
+            this.workFind_textBox.Enter += new System.EventHandler(this.workFind_textBox_Enter);
+            this.workFind_textBox.Leave += new System.EventHandler(this.workFind_textBox_Leave);
+            // 
             // WorkerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -4135,5 +4177,8 @@
         private System.Windows.Forms.LinkLabel linkLabel7;
         private System.Windows.Forms.LinkLabel linkLabel8;
         private System.Windows.Forms.Button report_button;
+        private System.Windows.Forms.LinkLabel linkLabel9;
+        private System.Windows.Forms.Button workFind_button;
+        private System.Windows.Forms.TextBox workFind_textBox;
     }
 }

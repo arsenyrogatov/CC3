@@ -30,7 +30,7 @@ namespace CC
             System.Data.SqlClient.SqlCommand WorkerLogin = new System.Data.SqlClient.SqlCommand("SELECT * FROM WorkerLogin(@Phone, @Id)", DBConnection.connection);
             WorkerLogin.CommandType = System.Data.CommandType.Text;
 
-            WorkerLogin.Parameters.Add("@Phone", System.Data.SqlDbType.VarChar, 40);
+            WorkerLogin.Parameters.Add("@Phone", System.Data.SqlDbType.VarChar, 60);
             WorkerLogin.Parameters["@Phone"].Value = phone;
 
             WorkerLogin.Parameters.Add("@Id", System.Data.SqlDbType.Int);
