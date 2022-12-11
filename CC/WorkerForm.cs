@@ -71,7 +71,7 @@ namespace CC
                 tabControl1.TabPages.Remove(Workers_tabPage);
                 tabControl1.TabPages.Remove(Supplier_tabPage);
                 tabControl1.TabPages.Remove(Materials_tabPage);
-                tabControl1.TabPages.Remove(matCon_tabPage);
+                //tabControl1.TabPages.Remove(matCon_tabPage);
             }
             else if (CurrentWorker.Job == "Генеральный директор") //director
             {
@@ -106,6 +106,18 @@ namespace CC
                 //tabControl1.TabPages.Remove(work_tabPage);
                 tabControl1.TabPages.Remove(matCon_tabPage);
                 tabControl1.TabPages.Remove(sklad_tabPage);
+            }
+            else if (CurrentWorker.Job == "Начальник по материально-техническому снабжению")
+            {
+                tabControl1.TabPages.Remove(Workers_tabPage);
+                tabControl1.TabPages.Remove(work_tabPage);
+                tabControl1.TabPages.Remove(brigade_tabPage);
+                //tabControl1.TabPages.Remove(Materials_tabPage);
+                tabControl1.TabPages.Remove(clients_tabPage);
+                //tabControl1.TabPages.Remove(Supplier_tabPage);
+                tabControl1.TabPages.Remove(brigade_tabPage);
+                //tabControl1.TabPages.Remove(matCon_tabPage);
+                //tabControl1.TabPages.Remove(sklad_tabPage);
             }
             else
             {
@@ -1715,6 +1727,16 @@ namespace CC
         private void linkLabel9_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ((DataTable)work_dataGridView.DataSource).DefaultView.RowFilter = "";
+        }
+
+        private void linkLabel10_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ((DataTable)cmpWork_dataGridView.DataSource).DefaultView.RowFilter = "";
+        }
+
+        private void cmpFind_button_Click(object sender, EventArgs e)
+        {
+            ((DataTable)cmpWork_dataGridView.DataSource).DefaultView.RowFilter = $"[Дата начала] > '{start_dateTimePicker.Value}' AND [Дата окончания] <= '{end_dateTimePicker.Value}'"; ;
         }
     }
 }

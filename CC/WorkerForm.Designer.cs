@@ -224,7 +224,11 @@
             this.label61 = new System.Windows.Forms.Label();
             this.projects_dataGridView = new System.Windows.Forms.DataGridView();
             this.work_tabPage = new System.Windows.Forms.TabPage();
+            this.linkLabel9 = new System.Windows.Forms.LinkLabel();
+            this.workFind_button = new System.Windows.Forms.Button();
+            this.workFind_textBox = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.cPr_comboBox = new System.Windows.Forms.ComboBox();
             this.label78 = new System.Windows.Forms.Label();
             this.cEnd_dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -239,7 +243,6 @@
             this.cmpWork_dataGridView = new System.Windows.Forms.DataGridView();
             this.label35 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.wrType_textBox = new System.Windows.Forms.TextBox();
             this.label75 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
@@ -320,9 +323,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel9 = new System.Windows.Forms.LinkLabel();
-            this.workFind_button = new System.Windows.Forms.Button();
-            this.workFind_textBox = new System.Windows.Forms.TextBox();
+            this.start_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.end_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.cmpFind_button = new System.Windows.Forms.Button();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
+            this.linkLabel10 = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
             this.Workers_tabPage.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -361,9 +367,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.projects_dataGridView)).BeginInit();
             this.work_tabPage.SuspendLayout();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmpWork_dataGridView)).BeginInit();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.work_dataGridView)).BeginInit();
             this.matCon_tabPage.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -2617,6 +2623,12 @@
             // 
             // work_tabPage
             // 
+            this.work_tabPage.Controls.Add(this.linkLabel10);
+            this.work_tabPage.Controls.Add(this.label84);
+            this.work_tabPage.Controls.Add(this.label72);
+            this.work_tabPage.Controls.Add(this.cmpFind_button);
+            this.work_tabPage.Controls.Add(this.end_dateTimePicker);
+            this.work_tabPage.Controls.Add(this.start_dateTimePicker);
             this.work_tabPage.Controls.Add(this.linkLabel9);
             this.work_tabPage.Controls.Add(this.workFind_button);
             this.work_tabPage.Controls.Add(this.workFind_textBox);
@@ -2635,6 +2647,39 @@
             this.work_tabPage.UseVisualStyleBackColor = true;
             this.work_tabPage.Enter += new System.EventHandler(this.work_tabPage_Enter);
             // 
+            // linkLabel9
+            // 
+            this.linkLabel9.AutoSize = true;
+            this.linkLabel9.Location = new System.Drawing.Point(785, 44);
+            this.linkLabel9.Name = "linkLabel9";
+            this.linkLabel9.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel9.TabIndex = 45;
+            this.linkLabel9.TabStop = true;
+            this.linkLabel9.Text = "Отменить поиск";
+            this.linkLabel9.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel9_LinkClicked);
+            // 
+            // workFind_button
+            // 
+            this.workFind_button.AutoSize = true;
+            this.workFind_button.Location = new System.Drawing.Point(1049, 7);
+            this.workFind_button.Name = "workFind_button";
+            this.workFind_button.Size = new System.Drawing.Size(75, 27);
+            this.workFind_button.TabIndex = 44;
+            this.workFind_button.Text = "Поиск";
+            this.workFind_button.UseVisualStyleBackColor = true;
+            this.workFind_button.Click += new System.EventHandler(this.workFind_button_Click);
+            // 
+            // workFind_textBox
+            // 
+            this.workFind_textBox.ForeColor = System.Drawing.Color.Gray;
+            this.workFind_textBox.Location = new System.Drawing.Point(734, 9);
+            this.workFind_textBox.Name = "workFind_textBox";
+            this.workFind_textBox.Size = new System.Drawing.Size(309, 23);
+            this.workFind_textBox.TabIndex = 43;
+            this.workFind_textBox.Text = "Название бригады, наименование или тип...";
+            this.workFind_textBox.Enter += new System.EventHandler(this.workFind_textBox_Enter);
+            this.workFind_textBox.Leave += new System.EventHandler(this.workFind_textBox_Leave);
+            // 
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2649,16 +2694,26 @@
             this.panel11.Controls.Add(this.label56);
             this.panel11.Controls.Add(this.cAdd_button);
             this.panel11.Controls.Add(this.cUpdate_button);
-            this.panel11.Location = new System.Drawing.Point(788, 358);
+            this.panel11.Location = new System.Drawing.Point(788, 394);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(350, 267);
+            this.panel11.Size = new System.Drawing.Size(350, 231);
             this.panel11.TabIndex = 37;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::CC.Properties.Resources.free_icon_hammer_6788573;
+            this.pictureBox6.Location = new System.Drawing.Point(166, 123);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(33, 28);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox6.TabIndex = 38;
+            this.pictureBox6.TabStop = false;
             // 
             // cPr_comboBox
             // 
             this.cPr_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cPr_comboBox.FormattingEnabled = true;
-            this.cPr_comboBox.Location = new System.Drawing.Point(102, 43);
+            this.cPr_comboBox.Location = new System.Drawing.Point(102, 34);
             this.cPr_comboBox.Name = "cPr_comboBox";
             this.cPr_comboBox.Size = new System.Drawing.Size(233, 25);
             this.cPr_comboBox.TabIndex = 42;
@@ -2668,7 +2723,7 @@
             this.label78.AutoSize = true;
             this.label78.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label78.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label78.Location = new System.Drawing.Point(3, 46);
+            this.label78.Location = new System.Drawing.Point(3, 37);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(64, 18);
             this.label78.TabIndex = 41;
@@ -2676,14 +2731,14 @@
             // 
             // cEnd_dateTimePicker
             // 
-            this.cEnd_dateTimePicker.Location = new System.Drawing.Point(102, 103);
+            this.cEnd_dateTimePicker.Location = new System.Drawing.Point(102, 94);
             this.cEnd_dateTimePicker.Name = "cEnd_dateTimePicker";
             this.cEnd_dateTimePicker.Size = new System.Drawing.Size(232, 23);
             this.cEnd_dateTimePicker.TabIndex = 38;
             // 
             // cBegin_dateTimePicker
             // 
-            this.cBegin_dateTimePicker.Location = new System.Drawing.Point(102, 74);
+            this.cBegin_dateTimePicker.Location = new System.Drawing.Point(102, 65);
             this.cBegin_dateTimePicker.Name = "cBegin_dateTimePicker";
             this.cBegin_dateTimePicker.Size = new System.Drawing.Size(232, 23);
             this.cBegin_dateTimePicker.TabIndex = 37;
@@ -2693,7 +2748,7 @@
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label41.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label41.Location = new System.Drawing.Point(3, 108);
+            this.label41.Location = new System.Drawing.Point(3, 99);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(56, 18);
             this.label41.TabIndex = 36;
@@ -2704,7 +2759,7 @@
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label49.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label49.Location = new System.Drawing.Point(3, 77);
+            this.label49.Location = new System.Drawing.Point(3, 68);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(64, 18);
             this.label49.TabIndex = 34;
@@ -2714,7 +2769,7 @@
             // 
             this.cWr_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cWr_comboBox.FormattingEnabled = true;
-            this.cWr_comboBox.Location = new System.Drawing.Point(102, 12);
+            this.cWr_comboBox.Location = new System.Drawing.Point(102, 3);
             this.cWr_comboBox.Name = "cWr_comboBox";
             this.cWr_comboBox.Size = new System.Drawing.Size(233, 25);
             this.cWr_comboBox.TabIndex = 33;
@@ -2724,7 +2779,7 @@
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label56.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label56.Location = new System.Drawing.Point(3, 15);
+            this.label56.Location = new System.Drawing.Point(3, 6);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(64, 18);
             this.label56.TabIndex = 32;
@@ -2733,7 +2788,7 @@
             // cAdd_button
             // 
             this.cAdd_button.AutoSize = true;
-            this.cAdd_button.Location = new System.Drawing.Point(22, 228);
+            this.cAdd_button.Location = new System.Drawing.Point(22, 191);
             this.cAdd_button.Name = "cAdd_button";
             this.cAdd_button.Size = new System.Drawing.Size(303, 27);
             this.cAdd_button.TabIndex = 31;
@@ -2744,7 +2799,7 @@
             // cUpdate_button
             // 
             this.cUpdate_button.AutoSize = true;
-            this.cUpdate_button.Location = new System.Drawing.Point(22, 194);
+            this.cUpdate_button.Location = new System.Drawing.Point(22, 157);
             this.cUpdate_button.Name = "cUpdate_button";
             this.cUpdate_button.Size = new System.Drawing.Size(303, 27);
             this.cUpdate_button.TabIndex = 29;
@@ -2807,15 +2862,6 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(350, 232);
             this.panel10.TabIndex = 27;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::CC.Properties.Resources.free_icon_hammer_6788573;
-            this.pictureBox6.Location = new System.Drawing.Point(143, 132);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(60, 49);
-            this.pictureBox6.TabIndex = 38;
-            this.pictureBox6.TabStop = false;
             // 
             // wrType_textBox
             // 
@@ -3751,38 +3797,58 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Код";
             // 
-            // linkLabel9
+            // start_dateTimePicker
             // 
-            this.linkLabel9.AutoSize = true;
-            this.linkLabel9.Location = new System.Drawing.Point(785, 44);
-            this.linkLabel9.Name = "linkLabel9";
-            this.linkLabel9.Size = new System.Drawing.Size(114, 17);
-            this.linkLabel9.TabIndex = 45;
-            this.linkLabel9.TabStop = true;
-            this.linkLabel9.Text = "Отменить поиск";
-            this.linkLabel9.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel9_LinkClicked);
+            this.start_dateTimePicker.Location = new System.Drawing.Point(811, 329);
+            this.start_dateTimePicker.Name = "start_dateTimePicker";
+            this.start_dateTimePicker.Size = new System.Drawing.Size(200, 23);
+            this.start_dateTimePicker.TabIndex = 46;
             // 
-            // workFind_button
+            // end_dateTimePicker
             // 
-            this.workFind_button.AutoSize = true;
-            this.workFind_button.Location = new System.Drawing.Point(1049, 16);
-            this.workFind_button.Name = "workFind_button";
-            this.workFind_button.Size = new System.Drawing.Size(75, 27);
-            this.workFind_button.TabIndex = 44;
-            this.workFind_button.Text = "Поиск";
-            this.workFind_button.UseVisualStyleBackColor = true;
-            this.workFind_button.Click += new System.EventHandler(this.workFind_button_Click);
+            this.end_dateTimePicker.Location = new System.Drawing.Point(811, 358);
+            this.end_dateTimePicker.Name = "end_dateTimePicker";
+            this.end_dateTimePicker.Size = new System.Drawing.Size(200, 23);
+            this.end_dateTimePicker.TabIndex = 47;
             // 
-            // workFind_textBox
+            // cmpFind_button
             // 
-            this.workFind_textBox.ForeColor = System.Drawing.Color.Gray;
-            this.workFind_textBox.Location = new System.Drawing.Point(788, 18);
-            this.workFind_textBox.Name = "workFind_textBox";
-            this.workFind_textBox.Size = new System.Drawing.Size(255, 23);
-            this.workFind_textBox.TabIndex = 43;
-            this.workFind_textBox.Text = "Название бригады, наименование или тип...";
-            this.workFind_textBox.Enter += new System.EventHandler(this.workFind_textBox_Enter);
-            this.workFind_textBox.Leave += new System.EventHandler(this.workFind_textBox_Leave);
+            this.cmpFind_button.Location = new System.Drawing.Point(1017, 329);
+            this.cmpFind_button.Name = "cmpFind_button";
+            this.cmpFind_button.Size = new System.Drawing.Size(121, 23);
+            this.cmpFind_button.TabIndex = 48;
+            this.cmpFind_button.Text = "Поиск";
+            this.cmpFind_button.UseVisualStyleBackColor = true;
+            this.cmpFind_button.Click += new System.EventHandler(this.cmpFind_button_Click);
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(786, 332);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(24, 17);
+            this.label72.TabIndex = 49;
+            this.label72.Text = "От";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(783, 361);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(27, 17);
+            this.label84.TabIndex = 50;
+            this.label84.Text = "До";
+            // 
+            // linkLabel10
+            // 
+            this.linkLabel10.AutoSize = true;
+            this.linkLabel10.Location = new System.Drawing.Point(1024, 363);
+            this.linkLabel10.Name = "linkLabel10";
+            this.linkLabel10.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel10.TabIndex = 51;
+            this.linkLabel10.TabStop = true;
+            this.linkLabel10.Text = "Отменить поиск";
+            this.linkLabel10.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel10_LinkClicked);
             // 
             // WorkerForm
             // 
@@ -3859,10 +3925,10 @@
             this.work_tabPage.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmpWork_dataGridView)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.work_dataGridView)).EndInit();
             this.matCon_tabPage.ResumeLayout(false);
             this.matCon_tabPage.PerformLayout();
@@ -4180,5 +4246,11 @@
         private System.Windows.Forms.LinkLabel linkLabel9;
         private System.Windows.Forms.Button workFind_button;
         private System.Windows.Forms.TextBox workFind_textBox;
+        private System.Windows.Forms.LinkLabel linkLabel10;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Button cmpFind_button;
+        private System.Windows.Forms.DateTimePicker end_dateTimePicker;
+        private System.Windows.Forms.DateTimePicker start_dateTimePicker;
     }
 }
